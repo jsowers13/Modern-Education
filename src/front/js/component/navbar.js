@@ -1,20 +1,41 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
+import { useHistory } from "react-router-dom";
+import { LogOutBtn } from "./logoutbtn";
 
 export const Navbar = () => {
+  const { store } = useContext(Context);
+  const history = useHistory();
+
+  const handleLogOut = () => {
+    sessionStorage.clear();
+    history.push("/");
+    location.reload();
+  };
+
   return (
     <nav className="navbar navbar-light bg-light">
       <div className="container">
         <Link to="/">
           <span className="navbar-brand mb-0 h1">Modern Education</span>
         </Link>
-        <div className="ml-auto">
-          <Link to="/demo">
-            <button className="btn btn-primary">
-              Check the Context in action
-            </button>
-          </Link>
-        </div>
+
+        {!store.activeUser ? (
+          <div className="ml-auto">
+            <Link to="/signup">
+              <button className="btn btn-primary mx-2">Sign Up</button>
+            </Link>
+
+            <Link to="/login">
+              <button className="btn btn-primary mx-2">Login</button>
+            </Link>
+          </div>
+        ) : (
+          <div className="ml-auto">
+            <LogOutBtn />
+          </div>
+        )}
       </div>
     </nav>
   );

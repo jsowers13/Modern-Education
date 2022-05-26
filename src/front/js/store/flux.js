@@ -79,10 +79,9 @@ const getState = ({ getStore, getActions, setStore }) => {
         try {
           const res = await fetch(process.env.BACKEND_URL + "/api/user", {
             method: "POST",
-            // mode: "no-cors",
+
             headers: {
               "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
             },
             body: JSON.stringify({ email, password }),
           });

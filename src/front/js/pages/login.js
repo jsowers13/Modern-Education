@@ -42,21 +42,15 @@ export const Login = () => {
               ></input>
             </div>
           </div>
-          <a
-            href="#"
-            className="btn btn-primary"
-            onClick={() => actions.getToken(email, password)}
-          >
-            Login
-          </a>
-          <a
-            href="#"
-            className="btn btn-primary"
-            onClick={() => actions.createUser(email, password)}
-          >
-            Sign Up
-          </a>
         </div>
+        <a
+          href="#"
+          className="btn btn-primary btn-lg m-auto"
+          onClick={() => actions.getToken(email, password)}
+        >
+          Login
+        </a>
+        <br></br>
       </div>
     </div>
   );
