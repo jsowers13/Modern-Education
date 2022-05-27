@@ -100,6 +100,18 @@ const getState = ({ getStore, getActions, setStore }) => {
           throw Error("Something went wrong");
         }
       },
+      getFavorites: (item) => {
+        console.log(item);
+        let myFavorites = getStore().favorites;
+        let selected = myFavorites.find((element) => element === item);
+        if (selected) {
+          myFavorites = myFavorites.filter((element) => item !== element);
+          setStore({ favorites: myFavorites });
+        } else {
+          myFavorites = [...myFavorites, item];
+          setStore({ favorites: myFavorites });
+        }
+      },
       changeColor: (index, color) => {
         //get the store
         const store = getStore();
