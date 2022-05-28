@@ -11,7 +11,7 @@ export const Navbar = () => {
 
   const handleLogOut = () => {
     sessionStorage.clear();
-    history.push("/");
+    history.push("/login");
     location.reload();
   };
 

@@ -41,7 +41,7 @@ const Layout = () => {
             <Route exact path="/login">
               <Login />
             </Route>
-            <Route exact path="/user/:theid">
+            <Route exact path="/user">
               <User />
             </Route>
             <Route>

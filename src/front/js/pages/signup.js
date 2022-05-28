@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 
 export const Signup = () => {
   const { store, actions } = useContext(Context);
@@ -51,6 +52,9 @@ export const Signup = () => {
           Sign Up
         </a>
         <br></br>
+        <Link to="/login" className="text-center">
+          Already Have a Username and Password? Click Here to Login!
+        </Link>
       </div>
     </div>
   );

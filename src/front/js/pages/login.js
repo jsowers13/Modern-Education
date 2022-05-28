@@ -1,11 +1,32 @@
 import React, { useContext, useState } from "react";
+
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export const Login = () => {
   const { store, actions } = useContext(Context);
-
+  const [error, setError] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const history = useHistory();
+  // const loadUser = () => {
+  //   history.push("/user/" + store.activeUser.id);
+  //   location.reload();
+  // };
+  const handleLogIn = async (event) => {
+    event.preventDefault();
+    const isLoggedIn = await actions.getToken(email, password);
+
+    if (isLoggedIn) {
+      history.push("/user");
+    } else {
+      setError("Cant Log in");
+    }
+    // {
+    //   store.activeUser ? loadUser() : "";
+    // }
+  };
 
   return (
     <div className="container d-flex justify-content-center">
@@ -46,12 +67,16 @@ export const Login = () => {
         <a
           href="#"
           className="btn btn-primary btn-lg m-auto"
-          onClick={() => actions.getToken(email, password)}
+          onClick={handleLogIn}
         >
           Login
         </a>
         <br></br>
+        <Link to="/signup" className="text-center">
+          Don't Have a Usename and Password yet? Click Here to Sign Up!
+        </Link>
       </div>
+      {error && <p>{error}</p>}
     </div>
   );
 };
