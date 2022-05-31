@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User
+from api.models import db, User, School
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
@@ -71,4 +71,11 @@ def get_users():
     all_users = list(map(lambda user: user.serialize(), users))
     
     return jsonify(all_users), 200
+
+@api.route('/schools', methods=['GET'])
+def get_all_schools():
+    schools = School.query.all()
+    all_schools = list(map(lambda school: school.serialize(), schools))
+    
+    return jsonify(all_schools), 200
     
