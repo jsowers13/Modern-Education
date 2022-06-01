@@ -18,8 +18,8 @@ class User(db.Model):
             # do not serialize the password, its a security breach
         }
 class School(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    school = db.Column(db.String(120), unique=True, nullable=False)
+    school_id = db.Column(db.Integer, primary_key=True)
+    school_name = db.Column(db.String(120), unique=True, nullable=False)
     state = db.Column(db.String(120), unique=False, nullable=False)
     tuition = db.Column(db.String(120), unique=False, nullable=False)
     time_to_complete = db.Column(db.String(120), unique=False, nullable=False)
@@ -28,8 +28,8 @@ class School(db.Model):
 
     def serialize(self):
         return {
-            "id": self.id,
-            "school": self.school,
+            "school_id": self.school_id,
+            "school_name": self.school_name,
             "state": self.state,
             "tuition": self.tuition,
             "time_to_complete": self.time_to_complete,

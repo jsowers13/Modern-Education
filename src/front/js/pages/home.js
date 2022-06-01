@@ -10,15 +10,19 @@ export const Home = () => {
   return (
     <div className="text-center mt-5 container-fluid">
       <p>Getting Started</p>
-      <div className="d-grid gap-2">
-        <Link to="/login">
-          <button className="btn btn-primary btn-lg w-75">Login</button>
-        </Link>
-        <br></br>
-        <Link to="/signup">
-          <button className="btn btn-primary btn-lg w-75">Sign Up</button>
-        </Link>
-      </div>
+      {!store.activeUser ? (
+        <div className="d-grid gap-2">
+          <Link to="/login">
+            <button className="btn btn-primary btn-lg w-75">Login</button>
+          </Link>
+          <br></br>
+          <Link to="/signup">
+            <button className="btn btn-primary btn-lg w-75">Sign Up</button>
+          </Link>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
