@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { useHistory } from "react-router-dom";
 import { LogOutBtn } from "./logoutbtn";
-import { FavoriteList } from "./favorites";
+import { FavoriteDropdown } from "./favorites";
 
 export const Navbar = () => {
   const { store } = useContext(Context);
@@ -18,9 +18,15 @@ export const Navbar = () => {
   return (
     <nav className="navbar navbar-light bg-light">
       <div className="container">
-        <Link to="/">
-          <span className="navbar-brand mb-0 h1">Modern Education</span>
-        </Link>
+        {!store.activeUser ? (
+          <Link to="/">
+            <span className="navbar-brand mb-0 h1">Modern Education</span>
+          </Link>
+        ) : (
+          <Link to="/user">
+            <span className="navbar-brand mb-0 h1">Modern Education</span>
+          </Link>
+        )}
 
         {!store.activeUser ? (
           <div className="ml-auto">
@@ -34,7 +40,7 @@ export const Navbar = () => {
           </div>
         ) : (
           <div className="w-25 d-flex justify-content-around">
-            <FavoriteList />
+            <FavoriteDropdown />
 
             <LogOutBtn />
           </div>

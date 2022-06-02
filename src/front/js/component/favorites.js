@@ -9,7 +9,7 @@ import { Context } from "../store/appContext";
 import getState from "../store/flux";
 import DropdownItem from "react-bootstrap/esm/DropdownItem";
 
-export const FavoriteList = () => {
+export const FavoriteDropdown = () => {
   const { store, actions } = useContext(Context);
   return (
     <Dropdown>

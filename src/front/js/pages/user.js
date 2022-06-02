@@ -10,28 +10,24 @@ export const User = (props) => {
   const { store, actions } = useContext(Context);
   const params = useParams();
   return (
-    <div>
+    <div className="text-center">
       {!store.activeUser ? (
-        <Login />
+        <div>
+          <h1>You're Not Logged In! Let's do something about that...</h1>
+          <Login />
+        </div>
       ) : (
         <div className="container d-flex flex-column align-items-center mb-5">
-          <p>Create User View Here </p>
-          <br></br>
           <Search />
           <br></br>
-          <SchoolCard
-            name="4 Geeks Academy"
+          {/* <SchoolCard
+            school_name="4 Geeks Academy"
             pic_url="https://www.beaconcouncil.com/wp-content/uploads/2018/08/4_geeks_academy_logo-300x150.jpg"
             state="Online"
             tuition="cheap"
             time_to_complete="almost nothing"
             id="0"
-          />
-          <Link to="/">
-            <span className="btn btn-primary btn-lg" href="#" role="button">
-              Back home
-            </span>
-          </Link>
+          /> */}
         </div>
       )}
     </div>
