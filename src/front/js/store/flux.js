@@ -17,21 +17,31 @@ const getState = ({ getStore, getActions, setStore }) => {
       ],
       token: null,
       favorites: [],
+      schools: [],
     },
     actions: {
       // Use getActions to call a function within a fuction
       exampleFunction: () => {
         getActions().changeColor(0, "green");
       },
+      getSchools: async () => {
+        try {
+          const res = await fetch(process.env.BACKEND_URL + "/api/schools");
+          if (res.ok) {
+            const data = await res.json();
+            setStore({ schools: data });
+            console.log(getStore().schools);
+          }
+          return true;
 
-      getMessage: () => {
-        // fetching data from the backend
-        fetch(process.env.BACKEND_URL + "/api/hello")
-          .then((resp) => resp.json())
-          .then((data) => setStore({ message: data.message }))
-          .catch((error) =>
-            console.log("Error loading message from backend", error)
-          );
+          // .then((resp) => resp.json())
+          // .then((data) => setStore({ schools: data }))
+          // .then(console.log(getStore().schools))
+          // .catch((error) =>
+          //   console.log("Error loading message from backend", error)
+        } catch (error) {
+          throw Error("Wrong email or password");
+        }
       },
       getActiveUser: async (email) => {
         try {

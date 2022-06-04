@@ -38,5 +38,5 @@ SchoolCard.propTypes = {
   state: PropTypes.string,
   tuition: PropTypes.string,
   time_to_complete: PropTypes.string,
-  id: PropTypes.string,
+  id: PropTypes.number,
 };

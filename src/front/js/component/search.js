@@ -1,8 +1,34 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link, useParams } from "react-router-dom";
+import { SchoolCard } from "./schoolcard.js";
 
 export const Search = () => {
+  const { store, actions } = useContext(Context);
+  const [stateValue, setStateValue] = useState({ value: "" });
+  const [tuitionValue, setTuitionValue] = useState({ value: "" });
+  const [timeToCompleteValue, setTimeToCompleteValue] = useState({ value: "" });
+  const [searchResults, setSearchResults] = useState([]);
+  const searchFunction = () => {
+    let newResults = store.schools.filter(
+      (item) =>
+        item.state === stateValue &&
+        item.tuition === tuitionValue &&
+        item.time_to_complete === timeToCompleteValue
+    );
+    setSearchResults(newResults);
+
+    console.log(newResults);
+  };
+  const updateState = (event) => {
+    setStateValue({ value: event.target.value });
+  };
+  const updateTuition = (event) => {
+    setTuitionValue({ value: event.target.value });
+  };
+  const updateTimeToComplete = (event) => {
+    setTimeToCompleteValue({ value: event.target.value });
+  };
   return (
     <div className="text-center container-fluid">
       <div className="card m-auto" style={{ width: 24 + "rem" }}>
@@ -17,6 +43,9 @@ export const Search = () => {
             className="form-select"
             aria-label="Default select example"
             placeholder="State"
+            id="stateDropdown"
+            onChange={(e) => setStateValue(e.target.value)}
+            value={stateValue}
           >
             <option defaultValue={"State"}></option>
             <option value="Indiana">Indiana</option>
@@ -27,33 +56,58 @@ export const Search = () => {
             className="form-select"
             aria-label="Default select example"
             placeholder="Tuition"
+            id="tuitionDropdown"
+            onChange={(e) => setTuitionValue(e.target.value)}
+            value={tuitionValue}
           >
             <option defaultValue={"Tuition"}></option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option value="1000">1000</option>
+            <option value="10000">10000</option>
+            <option value="20000">20000</option>
           </select>
           <h5>Time to Complete</h5>
           <select
             className="form-select"
             aria-label="Default select example"
             placeholder="Time to Complete"
+            id="timeToCompleteDropdown"
+            onChange={(e) => setTimeToCompleteValue(e.target.value)}
+            value={timeToCompleteValue}
           >
             <option defaultValue={"Time to Complete"}></option>
-            <option value="12">12 weeks</option>
-            <option value="16">16 weeks</option>
-            <option value="20">20 weeks</option>
+            <option value="12 Weeks">12 Weeks</option>
+            <option value="16 Weeks">16 Weeks</option>
+            <option value="20 Weeks">20 Weeks</option>
           </select>
         </div>
 
         <div className="card-body">
-          <a href="#" className="card-link btn btn-primary">
+          <a
+            href="#"
+            className="card-link btn btn-primary"
+            onClick={searchFunction}
+          >
             Search
           </a>
           <a href="#" className="card-link btn btn-primary">
             Reset
           </a>
         </div>
+      </div>
+      <div className="card-group">
+        {searchResults.map((item, index) => {
+          return (
+            <SchoolCard
+              school_name={item.school_name}
+              pic_url="https://www.beaconcouncil.com/wp-content/uploads/2018/08/4_geeks_academy_logo-300x150.jpg"
+              tuition={item.tuition}
+              state={item.state}
+              time_to_complete={item.time_to_complete}
+              key={index}
+              index={index}
+            />
+          );
+        })}
       </div>
     </div>
   );
