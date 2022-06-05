@@ -25,6 +25,7 @@ class School(db.Model):
     time_to_complete = db.Column(db.String(120), unique=False, nullable=False)
     student_body = db.Column(db.String(120), unique=False, nullable=True)
     type_of_certificate = db.Column(db.String(120), unique=False, nullable=True)
+    remote_or_in_person = db.Column(db.String(120), unique=False, nullable=True)
 
     def serialize(self):
         return {
@@ -34,5 +35,6 @@ class School(db.Model):
             "tuition": self.tuition,
             "time_to_complete": self.time_to_complete,
             "student_body": self.student_body,
-            "type_of_certificate": self.type_of_certificate
+            "type_of_certificate": self.type_of_certificate,
+            "remote_or_in_person": self.remote_or_in_person
         }
