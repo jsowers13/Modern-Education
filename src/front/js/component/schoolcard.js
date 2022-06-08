@@ -11,9 +11,10 @@ export const SchoolCard = (props) => {
       <img src={props.pic_url} className="card-img-top" alt="..."></img>
       <div className="card-body">
         <h5 className="card-title">{props.school_name}</h5>
-        <h6>State: {props.state}</h6>
+
         <h6>Tuition: {props.tuition}</h6>
         <h6>Time to Complete: {props.time_to_complete}</h6>
+        <h6>Skill Level: {props.skill_level}</h6>
         <div className="card-footer bg-white border-0">
           <Link
             to={"/single/" + [props.id]}
@@ -36,7 +37,8 @@ SchoolCard.propTypes = {
   name: PropTypes.string,
   pic_url: PropTypes.string,
   state: PropTypes.string,
-  tuition: PropTypes.string,
+  tuition: PropTypes.number,
   time_to_complete: PropTypes.string,
   id: PropTypes.number,
+  skill_level: PropTypes.string,
 };
