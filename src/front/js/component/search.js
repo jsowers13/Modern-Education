@@ -12,9 +12,10 @@ export const Search = () => {
   const searchFunction = () => {
     let newResults = store.schools.filter(
       (item) =>
-        item.state === stateValue &&
-        item.tuition === tuitionValue &&
-        item.time_to_complete === timeToCompleteValue
+        // item.state === stateValue &&
+        // item.tuition === tuitionValue &&
+        // item.time_to_complete === timeToCompleteValue
+        item
     );
     setSearchResults(newResults);
 
@@ -94,17 +95,18 @@ export const Search = () => {
           </a>
         </div>
       </div>
-      <div className="card-group">
+      <div className="card-deck">
         {searchResults.map((item, index) => {
           return (
             <SchoolCard
               school_name={item.school_name}
-              pic_url="https://www.beaconcouncil.com/wp-content/uploads/2018/08/4_geeks_academy_logo-300x150.jpg"
+              pic_url={item.logo}
               tuition={item.tuition}
-              state={item.state}
-              time_to_complete={item.time_to_complete}
+              skill_level={item.minimum_skill_level}
+              time_to_complete={item.length_in_weeks + " weeks"}
               key={index}
               index={index}
+              id={index}
             />
           );
         })}
