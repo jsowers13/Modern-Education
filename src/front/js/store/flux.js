@@ -18,6 +18,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       token: null,
       favorites: [],
       schools: [],
+      colleges: [],
+      combined_array: [],
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -33,15 +35,30 @@ const getState = ({ getStore, getActions, setStore }) => {
             console.log(getStore().schools);
           }
           return true;
-
-          // .then((resp) => resp.json())
-          // .then((data) => setStore({ schools: data }))
-          // .then(console.log(getStore().schools))
-          // .catch((error) =>
-          //   console.log("Error loading message from backend", error)
         } catch (error) {
           throw Error("Wrong email or password");
         }
+      },
+      getColleges: async () => {
+        try {
+          const res = await fetch(
+            "https://api.collegeai.com/v1/api/college/info?api_key=gdxwlZ51B2qe4BR8Ha3XghIV"
+          );
+          if (res.ok) {
+            const data = await res.json();
+            setStore({ colleges: data });
+            console.log(getStore().colleges);
+          }
+          return true;
+        } catch (error) {
+          throw Error("Wrong email or password");
+        }
+      },
+      getCombinedArray: () => {
+        setStore({
+          combined_array: getStore().schools.concat(getStore().colleges),
+        });
+        console.log(getStore().combined_array);
       },
       getActiveUser: async (email) => {
         try {
