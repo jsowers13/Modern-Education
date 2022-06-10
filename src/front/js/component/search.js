@@ -5,17 +5,23 @@ import { SchoolCard } from "./schoolcard.js";
 
 export const Search = () => {
   const { store, actions } = useContext(Context);
-  const [skillLevelValue, setSkillLevelValue] = useState({ value: "" });
-  const [minTuitionValue, setMinTuitionValue] = useState("");
-  const [maxTuitionValue, setMaxTuitionValue] = useState("");
-  const [timeToCompleteValue, setTimeToCompleteValue] = useState({ value: 0 });
+  const [skillLevelValue, setSkillLevelValue] = useState("");
+  const [programType, setProgramType] = useState("");
+  const [maxTuitionValue, setMaxTuitionValue] = useState(50000);
+  const [timeToCompleteValue, setTimeToCompleteValue] = useState(99);
   const [searchResults, setSearchResults] = useState([]);
   const searchFunction = () => {
     let newResults = store.schools.filter(
       (item) =>
-        item.minimum_skill_level === skillLevelValue &&
+        // item.minimum_skill_level === skillLevelValue &&
+        item.career_options.includes(programType) &&
         item.tuition <= maxTuitionValue &&
         item.length_in_weeks <= timeToCompleteValue
+
+      // item.minimum_skill_level === skillLevelValue &&
+      // item.career_options.includes(programType) &&
+      // item.tuition <= maxTuitionValue
+      // item.length_in_weeks <= timeToCompleteValue
     );
 
     setSearchResults(newResults);
@@ -32,29 +38,40 @@ export const Search = () => {
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </p>
-          <h5>Skill Level</h5>
+          {/* <h5>Skill Level</h5>
           <select
             className="form-select"
             aria-label="Default select example"
             placeholder="Skill Level"
-            id="stateDropdown"
+            id="skillDropdown"
             onChange={(e) => setSkillLevelValue(e.target.value)}
             value={skillLevelValue}
           >
             <option defaultValue={"Skill Level"}></option>
             <option value="Beginner">Beginner</option>
             <option value="Expert">Expert</option>
-          </select>
-          {/* <h5>Min Tuition</h5>
-          <input
-            type="text"
-            className="form-control"
+          </select> */}
+          <h5>Type of Program</h5>
+          <select
+            className="form-select"
             aria-label="Default select example"
-            placeholder="Minimum Tuition"
-            id="tuitionDropdown"
-            onChange={(e) => setMinTuitionValue(e.target.value)}
-            value={minTuitionValue}
-          ></input> */}
+            placeholder="Select from List"
+            id="programDropdown"
+            onChange={(e) => setProgramType(e.target.value)}
+            value={programType}
+          >
+            <option defaultValue={""}></option>
+            <option value="Coding">Coding</option>
+            <option value="Software Development">Software Development</option>
+            <option value="Data Analytics">Data Analytics</option>
+            <option value="Data Science">Data Science</option>
+            <option value="Digital Marketing">Digital Marketing</option>
+            <option value="UX/UI Design">UX/UI Design</option>
+            <option value="Cyber Security">Cyber Security</option>
+            <option value="Machine Learning">Machine Learning</option>
+            <option value="FinTech">FinTech</option>
+          </select>
+
           <h5>Max Tuition</h5>
           <input
             className="form-control"
@@ -63,7 +80,6 @@ export const Search = () => {
             placeholder=""
             id="tuitionDropdown"
             onChange={(e) => setMaxTuitionValue(e.target.value)}
-            value={maxTuitionValue}
           ></input>
           <h5>Max Length</h5>
           <select
@@ -74,7 +90,7 @@ export const Search = () => {
             onChange={(e) => setTimeToCompleteValue(e.target.value)}
             value={timeToCompleteValue}
           >
-            <option defaultValue={"Time to Complete"}></option>
+            <option defaultValue={99}></option>
             <option value={12}>12 Weeks</option>
             <option value={16}>16 Weeks</option>
             <option value={24}>24 Weeks</option>
@@ -82,16 +98,13 @@ export const Search = () => {
           </select>
         </div>
 
-        <div className="card-body">
+        <div className="card-body d-grid">
           <a
             href="#"
-            className="card-link btn btn-primary"
+            className="card-link btn btn-lg btn-success col-9 mx-auto"
             onClick={searchFunction}
           >
             Search
-          </a>
-          <a href="#" className="card-link btn btn-primary">
-            Reset
           </a>
         </div>
       </div>
