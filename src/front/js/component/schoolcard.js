@@ -7,7 +7,7 @@ export const SchoolCard = (props) => {
   const { store, actions } = useContext(Context);
 
   return (
-    <div className="card" style={{ width: 18 + "rem" }}>
+    <div className="card mx-auto my-5" style={{ width: 18 + "rem" }}>
       <img src={props.pic_url} className="card-img-top" alt="..."></img>
       <div className="card-body">
         <h5 className="card-title">{props.school_name}</h5>
