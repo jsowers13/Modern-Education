@@ -17,8 +17,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       ],
       token: null,
       favorites: [],
-      schools: [],
-      colleges: [],
+      schools: [1, 2, 3, 4],
+      colleges: [5, 6, 7, 8],
       combined_array: [],
     },
     actions: {
@@ -42,11 +42,11 @@ const getState = ({ getStore, getActions, setStore }) => {
       getColleges: async () => {
         try {
           const res = await fetch(
-            "https://api.collegeai.com/v1/api/college/info?api_key=gdxwlZ51B2qe4BR8Ha3XghIV"
+            "https://api.collegeai.com/v1/api/college-list?api_key=gdxwlZ51B2qe4BR8Ha3XghIV&filters=%7B%0A%22max_tuition%22%3A50000%0A%7D&info_ids=website%2Cavg_cost_of_attendance%2Clogo_image%2Cshort_description%2Con_campus_housing_available"
           );
           if (res.ok) {
             const data = await res.json();
-            setStore({ colleges: data });
+            setStore({ colleges: data.colleges });
             console.log(getStore().colleges);
           }
           return true;
@@ -56,7 +56,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       getCombinedArray: () => {
         setStore({
-          combined_array: getStore().schools.concat(getStore().colleges),
+          combined_array: [...getStore().schools, ...getStore().colleges],
         });
         console.log(getStore().combined_array);
       },
