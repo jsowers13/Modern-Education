@@ -32,7 +32,7 @@ export const Search = () => {
   };
   return (
     <div className="text-center container-fluid">
-      <div className="card m-auto" style={{ width: 24 + "rem" }}>
+      <div className="card mx-auto my-5" style={{ width: 24 + "rem" }}>
         <div className="card-body">
           <h3 className="card-title">Find Your School!</h3>
           <p className="card-text">
@@ -95,7 +95,7 @@ export const Search = () => {
           </a>
         </div>
       </div>
-      <div className="card-deck">
+      <div className="card-deck-wrapper">
         {searchResults.map((item, index) => {
           return (
             <SchoolCard
