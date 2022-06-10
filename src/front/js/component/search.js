@@ -5,31 +5,24 @@ import { SchoolCard } from "./schoolcard.js";
 
 export const Search = () => {
   const { store, actions } = useContext(Context);
-  const [stateValue, setStateValue] = useState({ value: "" });
-  const [tuitionValue, setTuitionValue] = useState({ value: "" });
-  const [timeToCompleteValue, setTimeToCompleteValue] = useState({ value: "" });
+  const [skillLevelValue, setSkillLevelValue] = useState({ value: "" });
+  const [minTuitionValue, setMinTuitionValue] = useState("");
+  const [maxTuitionValue, setMaxTuitionValue] = useState("");
+  const [timeToCompleteValue, setTimeToCompleteValue] = useState({ value: 0 });
   const [searchResults, setSearchResults] = useState([]);
   const searchFunction = () => {
     let newResults = store.schools.filter(
       (item) =>
-        // item.state === stateValue &&
-        // item.tuition === tuitionValue &&
-        // item.time_to_complete === timeToCompleteValue
-        item
+        item.minimum_skill_level === skillLevelValue &&
+        item.tuition <= maxTuitionValue &&
+        item.length_in_weeks <= timeToCompleteValue
     );
+
     setSearchResults(newResults);
 
     console.log(newResults);
   };
-  const updateState = (event) => {
-    setStateValue({ value: event.target.value });
-  };
-  const updateTuition = (event) => {
-    setTuitionValue({ value: event.target.value });
-  };
-  const updateTimeToComplete = (event) => {
-    setTimeToCompleteValue({ value: event.target.value });
-  };
+
   return (
     <div className="text-center container-fluid">
       <div className="card mx-auto my-5" style={{ width: 24 + "rem" }}>
@@ -39,34 +32,40 @@ export const Search = () => {
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </p>
-          <h5>State</h5>
+          <h5>Skill Level</h5>
           <select
             className="form-select"
             aria-label="Default select example"
-            placeholder="State"
+            placeholder="Skill Level"
             id="stateDropdown"
-            onChange={(e) => setStateValue(e.target.value)}
-            value={stateValue}
+            onChange={(e) => setSkillLevelValue(e.target.value)}
+            value={skillLevelValue}
           >
-            <option defaultValue={"State"}></option>
-            <option value="Indiana">Indiana</option>
-            <option value="Florida">Florida</option>
+            <option defaultValue={"Skill Level"}></option>
+            <option value="Beginner">Beginner</option>
+            <option value="Expert">Expert</option>
           </select>
-          <h5>Tuition</h5>
-          <select
-            className="form-select"
+          {/* <h5>Min Tuition</h5>
+          <input
+            type="text"
+            className="form-control"
             aria-label="Default select example"
-            placeholder="Tuition"
+            placeholder="Minimum Tuition"
             id="tuitionDropdown"
-            onChange={(e) => setTuitionValue(e.target.value)}
-            value={tuitionValue}
-          >
-            <option defaultValue={"Tuition"}></option>
-            <option value="1000">1000</option>
-            <option value="10000">10000</option>
-            <option value="20000">20000</option>
-          </select>
-          <h5>Time to Complete</h5>
+            onChange={(e) => setMinTuitionValue(e.target.value)}
+            value={minTuitionValue}
+          ></input> */}
+          <h5>Max Tuition</h5>
+          <input
+            className="form-control"
+            type="text"
+            aria-label="Default select example"
+            placeholder=""
+            id="tuitionDropdown"
+            onChange={(e) => setMaxTuitionValue(e.target.value)}
+            value={maxTuitionValue}
+          ></input>
+          <h5>Max Length</h5>
           <select
             className="form-select"
             aria-label="Default select example"
@@ -76,9 +75,10 @@ export const Search = () => {
             value={timeToCompleteValue}
           >
             <option defaultValue={"Time to Complete"}></option>
-            <option value="12 Weeks">12 Weeks</option>
-            <option value="16 Weeks">16 Weeks</option>
-            <option value="20 Weeks">20 Weeks</option>
+            <option value={12}>12 Weeks</option>
+            <option value={16}>16 Weeks</option>
+            <option value={24}>24 Weeks</option>
+            <option value={32}>32 Weeks</option>
           </select>
         </div>
 
