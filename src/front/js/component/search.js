@@ -119,7 +119,7 @@ export const Search = () => {
               time_to_complete={item.length_in_weeks + " weeks"}
               key={index}
               index={index}
-              id={index}
+              id={item.school_id}
             />
           );
         })}

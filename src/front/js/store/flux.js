@@ -17,8 +17,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       ],
       token: null,
       favorites: [],
-      schools: [1, 2, 3, 4],
-      colleges: [5, 6, 7, 8],
+      schools: [],
+      colleges: [],
       combined_array: [],
     },
     actions: {
