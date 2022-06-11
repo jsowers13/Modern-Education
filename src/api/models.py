@@ -2,10 +2,16 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+favorites = db.Table('favorites',
+    db.Column('user_id', db.Integer, db.ForeignKey('user.id'), primary_key=True),
+    db.Column('school_id', db.Integer, db.ForeignKey('school.school_id'), primary_key=True)
+)
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(80), unique=False, nullable=False)
+    favorites = db.relationship('School', secondary=favorites, lazy='subquery', backref=db.backref('users'))
+
     
     
     def __repr__(self):
@@ -15,8 +21,10 @@ class User(db.Model):
         return {
             "id": self.id,
             "email": self.email,
+            "favorites": [f.serialize() for f in self.favorites]
             # do not serialize the password, its a security breach
         }
+
 class School(db.Model):
     school_id = db.Column(db.Integer, primary_key=True)
     logo = db.Column(db.String(500), unique=True, nullable=False)
