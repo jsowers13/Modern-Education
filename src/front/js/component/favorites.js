@@ -22,19 +22,19 @@ export const FavoriteDropdown = () => {
         Saved
       </Dropdown.Toggle>
       <Dropdown.Menu>
-        {store.favorites.length > 0 ? (
-          store.favorites.map((selected, i) => (
+        {store.activeUser.favorites.length > 0 ? (
+          store.activeUser.favorites.map((selected, i) => (
             <Dropdown.Item
               className="d-flex justify-content-end"
               href="#/action-1"
               key={i}
             >
-              {selected}
+              {selected.school_name}
               <Placeholder xs={1} variant="light" />
               <Button
                 className="float-right"
                 variant="danger"
-                onClick={() => actions.getFavorites(selected, i)}
+                onClick={() => actions.addFavorite(selected.school_name, i)}
               >
                 <i className="fas fa-trash-alt" />
               </Button>

@@ -23,39 +23,40 @@ export const Single = (props) => {
 
         <p className="lead">{store.schools[params.theid].description}</p>
         <hr className="my-4"></hr>
-        <div className="row">
-          <div className="col-2 text-center">Contact</div>
-          <div className="col-2 text-center">Tuition</div>
-          <div className="col-2 text-center">Time to Complete</div>
-          <div className="col-2 text-center">Career Options</div>
-          <div className="col-2 text-center">Skill Level</div>
-          <div className="col-2 text-center">Job Placement Assistance</div>
-          <div className="col-2 text-center">Address</div>
-          <div className="col-2 text-center">Phone</div>
+        <div className="row d-flex justify-content-around">
+          <div className="col-1 text-center">Contact</div>
+          <div className="col-1 text-center">Tuition</div>
+          <div className="col-1 text-center">Time to Complete</div>
+          <div className="col-1 text-center">Career Options</div>
+          <div className="col-1 text-center">Skill Level</div>
+          <div className="col-1 text-center">Job Placement Assistance</div>
+          <div className="col-1 text-center">Address</div>
+          <div className="col-1 text-center">Phone</div>
         </div>
-        <div className="row">
-          <div className="col-2 text-center">
+        <hr className="my-2"></hr>
+        <div className="row d-flex justify-content-around">
+          <div className="col-1 text-center">
             {store.schools[params.theid].school_email}
           </div>
-          <div className="col-2 text-center">
+          <div className="col-1 text-center">
             {store.schools[params.theid].tuition}
           </div>
-          <div className="col-2 text-center">
+          <div className="col-1 text-center">
             {store.schools[params.theid].length_in_weeks} Weeks
           </div>
-          <div className="col-2 text-center">
+          <div className="col-1 text-center">
             {store.schools[params.theid].career_options}
           </div>
-          <div className="col-2 text-center">
+          <div className="col-1 text-center">
             {store.schools[params.theid].minimum_skill_level}
           </div>
-          <div className="col-2 text-center">
+          <div className="col-1 text-center">
             {store.schools[params.theid].job_placement_available ? "Yes" : "No"}
           </div>
-          <div className="col-2 text-center">
+          <div className="col-1 text-center">
             {store.schools[params.theid].mailing_address}
           </div>
-          <div className="col-2 text-center">
+          <div className="col-1 text-center">
             {store.schools[params.theid].phone_number}
           </div>
         </div>
@@ -63,9 +64,7 @@ export const Single = (props) => {
         <p className="lead my-3 text-center">
           <button
             className="btn btn-primary btn-lg me-5"
-            onClick={() =>
-              actions.getFavorites(store.schools[params.theid].school_name)
-            }
+            onClick={() => actions.addFavorite(store.schools[params.theid])}
           >
             Save{" "}
           </button>
