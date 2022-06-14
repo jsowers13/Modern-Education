@@ -8,7 +8,7 @@ import { Single } from "./pages/single";
 import { Signup } from "./pages/signup";
 import { Login } from "./pages/login";
 import { User } from "./pages/user";
-
+import { Context } from "./store/appContext";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";

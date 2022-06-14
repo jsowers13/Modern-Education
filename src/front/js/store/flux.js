@@ -75,6 +75,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           const activeUser = await res.json();
           setStore({ activeUser: activeUser });
           console.log(getStore().activeUser);
+          console.log(getStore().activeUser.favorites);
           sessionStorage.setItem("activeUser", activeUser);
         } catch (error) {
           throw Error("Wrong email or password");
@@ -127,7 +128,8 @@ const getState = ({ getStore, getActions, setStore }) => {
           throw Error("Something went wrong");
         }
       },
-      getFavorites: (item) => {
+      getFavorites: () => {},
+      addFavorite: (item) => {
         console.log(item);
         let myFavorites = getStore().favorites;
         let selected = myFavorites.find((element) => element === item);

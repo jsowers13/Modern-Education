@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Search } from "../component/search";
 import { SchoolCard } from "../component/schoolcard";
+import { FavoriteCard } from "../component/favoriteCard";
 import { Login } from "./login";
 
 export const User = (props) => {
@@ -18,6 +19,24 @@ export const User = (props) => {
         </div>
       ) : (
         <div className="container d-flex flex-column align-items-center mb-5">
+          <div>
+            {store.activeUser
+              ? store.activeUser.favorites.map((item, index) => {
+                  return (
+                    <FavoriteCard
+                      school_name={item.school_name}
+                      pic_url={item.logo}
+                      tuition={item.tuition}
+                      skill_level={item.minimum_skill_level}
+                      time_to_complete={item.length_in_weeks + " weeks"}
+                      key={index}
+                      index={index}
+                      id={item.school_id}
+                    />
+                  );
+                })
+              : ""}
+          </div>
           <Search />
           <br></br>
           {/* <SchoolCard

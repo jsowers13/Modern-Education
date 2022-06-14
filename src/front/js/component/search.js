@@ -28,7 +28,25 @@ export const Search = () => {
 
     console.log(newResults);
   };
+  const searchColleges = () => {
+    let newResults = store.colleges.filter(
+      (item) =>
+        // item.minimum_skill_level === skillLevelValue &&
+        item.career_options.includes(programType) &&
+        item.tuition <= maxTuitionValue &&
+        item.length_in_weeks <= timeToCompleteValue
 
+      // item.minimum_skill_level === skillLevelValue &&
+      // item.career_options.includes(programType) &&
+      // item.tuition <= maxTuitionValue
+      // item.length_in_weeks <= timeToCompleteValue
+    );
+
+    setSearchResults(newResults);
+
+    console.log(newResults);
+  };
+  const savedSchools = store.activeUser.favorites;
   return (
     <div className="text-center container-fluid">
       <div className="card mx-auto my-5" style={{ width: 24 + "rem" }}>
