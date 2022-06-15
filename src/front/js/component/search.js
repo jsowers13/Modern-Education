@@ -10,6 +10,7 @@ export const Search = () => {
   const [maxTuitionValue, setMaxTuitionValue] = useState(50000);
   const [timeToCompleteValue, setTimeToCompleteValue] = useState(99);
   const [searchResults, setSearchResults] = useState([]);
+  const [schoolTypeValue, setSchoolTypeValue] = useState("");
   const searchFunction = () => {
     let newResults = store.schools.filter(
       (item) =>
@@ -56,19 +57,19 @@ export const Search = () => {
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </p>
-          {/* <h5>Skill Level</h5>
+          <h5>Type of School</h5>
           <select
             className="form-select"
             aria-label="Default select example"
-            placeholder="Skill Level"
-            id="skillDropdown"
-            onChange={(e) => setSkillLevelValue(e.target.value)}
-            value={skillLevelValue}
+            placeholder="Type of School"
+            id="schoolDropdown"
+            onChange={(e) => setSchoolTypeValue(e.target.value)}
+            value={schoolTypeValue}
           >
-            <option defaultValue={"Skill Level"}></option>
-            <option value="Beginner">Beginner</option>
-            <option value="Expert">Expert</option>
-          </select> */}
+            <option defaultValue={"Bootcamp"}></option>
+            <option value="Bootcamp">Bootcamp</option>
+            <option value="College">College</option>
+          </select>
           <h5>Type of Program</h5>
           <select
             className="form-select"
