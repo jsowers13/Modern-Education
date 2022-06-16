@@ -20,6 +20,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       schools: [],
       colleges: [],
       combined_array: [],
+      
     },
     actions: {
       // Use getActions to call a function within a fuction
