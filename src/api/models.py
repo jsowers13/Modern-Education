@@ -28,7 +28,7 @@ class User(db.Model):
 class School(db.Model):
     school_id = db.Column(db.Integer, primary_key=True)
     logo = db.Column(db.String(500), unique=True, nullable=False)
-    school_name= db.Column(db.String(120), unique=True, nullable=False)
+    name= db.Column(db.String(120), unique=True, nullable=False)
     description= db.Column(db.String(2000), unique=False, nullable=True)
     website = db.Column(db.String(120), unique=False, nullable=False)
     phone_number = db.Column(db.String(120), unique=False, nullable=True)
@@ -48,7 +48,7 @@ class School(db.Model):
         return {
             "school_id": self.school_id,
             "logo": self.logo,
-            "school_name": self.school_name,
+            "name": self.name,
             "description": self.description,
             "website": self.website,
             "phone_number": self.phone_number,

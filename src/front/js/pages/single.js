@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
+import "../../styles/home.css";
 
 export const Bootcamp = (props) => {
   const { store, actions } = useContext(Context);
@@ -61,14 +62,14 @@ export const Bootcamp = (props) => {
           </div>
         </div>
         <br></br>
-        <p className="lead my-3 text-center">
+        <div className="d-flex justify-content-center">
           <a href={store.schools[params.theid].website}>
             <button className="btn btn-lg btn-primary">
               Visit School Site
             </button>{" "}
           </a>
           <button
-            className="btn btn-primary btn-lg me-5"
+            className="btn btn-primary btn-lg mx-5"
             onClick={() => actions.addFavorite(store.schools[params.theid])}
           >
             Save{" "}
@@ -78,7 +79,7 @@ export const Bootcamp = (props) => {
               Back to Search
             </span>
           </Link>
-        </p>
+        </div>
       </div>
     </div>
   );
@@ -92,7 +93,7 @@ export const College = (props) => {
   const { store, actions } = useContext(Context);
   const params = useParams();
   return (
-    <div>
+    <div className="overflow-scroll">
       <div className="jumbotron mx-5">
         <div className="row d-flex justify-content-around">
           <div className="col-6 d-flex justify-content-end">
@@ -140,7 +141,7 @@ export const College = (props) => {
           </div>
         </div>
         <br></br>
-        <div className="d-flex justify-content-center">
+        <div className="d-flex justify-content-center links">
           <a href={"https://" + store.colleges[params.theid].website}>
             <button className="btn btn-lg btn-primary">Learn More</button>
           </a>
