@@ -2,7 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
       message: null,
-      activeUser: sessionStorage.getItem("activeUser"),
+      activeUser: localStorage.getItem("activeUser"),
       demo: [
         {
           title: "FIRST",
@@ -15,7 +15,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           initial: "white",
         },
       ],
-      token: null,
+      token: localStorage.getItem("token"),
       favorites: [],
       schools: [],
       colleges: [],
@@ -76,7 +76,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           setStore({ activeUser: activeUser });
           console.log(getStore().activeUser);
           console.log(getStore().activeUser.favorites);
-          sessionStorage.setItem("activeUser", activeUser);
+          localStorage.setItem("activeUser", activeUser);
         } catch (error) {
           throw Error("Wrong email or password");
         }
@@ -93,7 +93,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
           if (resp.ok) {
             const token = await resp.json();
-            sessionStorage.setItem("token", JSON.stringify(token));
+            localStorage.setItem("token", JSON.stringify(token));
             getActions().getActiveUser(email);
             return true;
           } else {

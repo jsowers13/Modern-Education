@@ -13,7 +13,7 @@ export const FavoriteCard = (props) => {
         <h6 className="card-text">Tuition: {props.tuition}</h6>
         <div className="card-footer bg-white border-0">
           <Link
-            to={"/single/" + [props.index]}
+            to={"/bootcamp/" + [props.index]}
             style={{ textDecoration: "none", color: "white" }}
           >
             <button className="btn btn-success">Learn More</button>

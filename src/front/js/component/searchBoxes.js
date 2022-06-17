@@ -42,6 +42,7 @@ export const BootcampSearch = () => {
             value={programType}
           >
             <option defaultValue={""}></option>
+            <option value="">Not Sure</option>
             <option value="Coding">Coding</option>
             <option value="Software Development">Software Development</option>
             <option value="Data Analytics">Data Analytics</option>
@@ -93,7 +94,7 @@ export const BootcampSearch = () => {
         {searchResults.map((item, index) => {
           return (
             <SchoolCard
-              school_name={item.school_name}
+              school_name={item.name}
               pic_url={item.logo}
               tuition={item.tuition}
               skill_level={item.minimum_skill_level}

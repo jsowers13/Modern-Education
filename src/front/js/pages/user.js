@@ -24,7 +24,7 @@ export const User = (props) => {
               ? store.activeUser.favorites.map((item, index) => {
                   return (
                     <FavoriteCard
-                      school_name={item.school_name}
+                      school_name={item.name}
                       pic_url={item.logo}
                       tuition={item.tuition}
                       skill_level={item.minimum_skill_level}
