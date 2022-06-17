@@ -46,6 +46,7 @@ export const Home = () => {
                   role="button"
                   aria-expanded="false"
                   aria-controls="multiCollapseExample1"
+                  name="selector"
                 >
                   Computer Science Degree
                 </Button>
@@ -57,6 +58,7 @@ export const Home = () => {
                   data-bs-target="#multiCollapseExample2"
                   aria-expanded="false"
                   aria-controls="multiCollapseExample2"
+                  name="selector"
                 >
                   Coding Bootcamp
                 </Button>
@@ -67,17 +69,18 @@ export const Home = () => {
                   data-bs-target="#multiCollapseExample3"
                   aria-expanded="false"
                   aria-controls="multiCollapseExample3"
+                  name="selector"
                 >
                   Career oportunities
                 </Button>
               </Col>
             </Row>
-            <Row className="text-center" >
+            <Row className="text-center">
               <Col>
                 <div
                   className="collapse multi-collapse"
                   id="multiCollapseExample1"
-                  >
+                >
                   <Tabs
                     defaultActiveKey="general"
                     id="uncontrolled-tab-example"
