@@ -20,7 +20,6 @@ const getState = ({ getStore, getActions, setStore }) => {
       schools: [],
       colleges: [],
       combined_array: [],
-      
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -43,7 +42,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       getColleges: async () => {
         try {
           const res = await fetch(
-            "https://api.collegeai.com/v1/api/college-list?api_key=gdxwlZ51B2qe4BR8Ha3XghIV&filters=%7B%0A%22max_tuition%22%3A50000%0A%7D&info_ids=website%2Cavg_cost_of_attendance%2Clogo_image%2Cshort_description%2Con_campus_housing_available"
+            "https://api.collegeai.com/v1/api/college-list?api_key=gdxwlZ51B2qe4BR8Ha3XghIV&filters=%7B%0A%22max_tuition%22%3A50000%0A%7D&info_ids=website%2Cavg_cost_of_attendance%2Clogo_image%2Cshort_description%2Cmedian_earnings_six_yrs_after_entry%2Cmedian_earnings_ten_yrs_after_entry%2Cstate_abbr%2Cfour_year_graduation_rate%2Cin_state_tuition%2Con_campus_housing_available%2Clong_description"
           );
           if (res.ok) {
             const data = await res.json();
