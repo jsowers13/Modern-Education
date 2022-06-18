@@ -8,7 +8,7 @@ export const LogOutBtn = () => {
   const history = useHistory();
 
   const handleLogOut = () => {
-    localStorage.clear();
+    sessionStorage.clear();
     history.push("/");
     location.reload();
   };

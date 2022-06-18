@@ -20,7 +20,9 @@ export const SchoolCard = (props) => {
             to={"/bootcamp/" + [props.index]}
             style={{ textDecoration: "none", color: "white" }}
           >
-            <button className="btn btn-success">Learn More</button>
+            <button className="btn btn-success" data-bs-dismiss="modal">
+              Learn More
+            </button>
           </Link>
           <button
             className="btn btn-primary ms-5"
@@ -57,10 +59,12 @@ export const CollegeCard = (props) => {
         <h6> Avg 6-Year Earnings: {props.six_year_earnings}</h6>
         <div className="card-footer bg-white border-0">
           <Link
-            to={"/college/" + [props.index]}
+            to={"/college/" + [props.id]}
             style={{ textDecoration: "none", color: "white" }}
           >
-            <button className="btn btn-success">Learn More</button>
+            <button className="btn btn-success" data-bs-dismiss="modal">
+              Learn More
+            </button>
           </Link>
           <button
             className="btn btn-primary ms-5"
@@ -81,4 +85,5 @@ CollegeCard.propTypes = {
   avg_cost_of_attendance: PropTypes.number,
   id: PropTypes.string,
   six_year_earnings: PropTypes.number,
+  college_Unit_id: PropTypes.string,
 };
