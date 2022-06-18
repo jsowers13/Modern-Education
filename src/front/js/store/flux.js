@@ -169,9 +169,9 @@ const getState = ({ getStore, getActions, setStore }) => {
         console.log(id);
         const response = await fetch(process.env.BACKEND_URL + "/api/schools");
         const data = await response.json();
-        setStore({ schools: data[id] });
+        setStore({ schools: data[id - 1] });
         console.log(data);
-        return data[id];
+        return data[id - 1];
       },
     },
   };
