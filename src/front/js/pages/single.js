@@ -9,21 +9,33 @@ import "../../styles/home.css";
 export const Bootcamp = (props) => {
   const { store, actions } = useContext(Context);
   const params = useParams();
+  const [currentBootCamp, setCurrentBootCamp] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      // You can await here
+      const answer = await actions.getBootCampsByID(params.school_id);
+      setCurrentBootCamp(answer);
+      console.log(answer);
+      return answer;
+      // ...
+    }
+    fetchData();
+    console.log(currentBootCamp);
+  }, []);
   return (
     <div>
       <div className="jumbotron mx-5">
         <div className="row d-flex justify-content-around">
           <div className="col-6 d-flex justify-content-end">
-            <img src={store.schools[params.theid].logo} alt=""></img>
+            <img src={currentBootCamp.logo} alt=""></img>
           </div>
           <div className="col-6 d-flex justify-content-center align-items-center">
-            <h1 className="display-4">
-              {store.schools[params.theid].school_name}
-            </h1>
+            <h1 className="display-4">{currentBootCamp.school_name}</h1>
           </div>
         </div>
 
-        <p className="lead">{store.schools[params.theid].description}</p>
+        <p className="lead">{currentBootCamp.description}</p>
         <hr className="my-4"></hr>
         <div className="row d-flex justify-content-around">
           <div className="col-1 text-center">Contact</div>
@@ -38,40 +50,38 @@ export const Bootcamp = (props) => {
         <hr className="my-2"></hr>
         <div className="row d-flex justify-content-around">
           <div className="col-1 text-center">
-            {store.schools[params.theid].school_email}
+            {currentBootCamp.school_email}
+          </div>
+          <div className="col-1 text-center">{currentBootCamp.tuition}</div>
+          <div className="col-1 text-center">
+            {currentBootCamp.length_in_weeks} Weeks
           </div>
           <div className="col-1 text-center">
-            {store.schools[params.theid].tuition}
+            {currentBootCamp.career_options}
           </div>
           <div className="col-1 text-center">
-            {store.schools[params.theid].length_in_weeks} Weeks
+            {currentBootCamp.minimum_skill_level}
           </div>
           <div className="col-1 text-center">
-            {store.schools[params.theid].career_options}
+            {currentBootCamp.job_placement_available ? "Yes" : "No"}
           </div>
           <div className="col-1 text-center">
-            {store.schools[params.theid].minimum_skill_level}
+            {currentBootCamp.mailing_address}
           </div>
           <div className="col-1 text-center">
-            {store.schools[params.theid].job_placement_available ? "Yes" : "No"}
-          </div>
-          <div className="col-1 text-center">
-            {store.schools[params.theid].mailing_address}
-          </div>
-          <div className="col-1 text-center">
-            {store.schools[params.theid].phone_number}
+            {currentBootCamp.phone_number}
           </div>
         </div>
         <br></br>
         <div className="d-flex justify-content-center">
-          <a href={store.schools[params.theid].website}>
+          <a href={currentBootCamp.website}>
             <button className="btn btn-lg btn-primary">
               Visit School Site
             </button>{" "}
           </a>
           <button
             className="btn btn-primary btn-lg mx-5"
-            onClick={() => actions.addFavorite(store.schools[params.theid])}
+            onClick={() => actions.addFavorite(currentBootCamp)}
           >
             Save{" "}
           </button>
@@ -94,24 +104,22 @@ export const College = (props) => {
   const { store, actions } = useContext(Context);
   const params = useParams();
   const [currentCollege, setCurrentCollege] = useState(null);
-  const MyAPI =
-    "https://api.collegeai.com/v1/api/college/info?api_key=gdxwlZ51B2qe4BR8Ha3XghIV&college_unit_ids=" +
-    params.collegeUnitId +
-    "&info_ids=website%2Cavg_cost_of_attendance%2Clogo_image%2Cshort_description%2Cmedian_earnings_six_yrs_after_entry%2Cmedian_earnings_ten_yrs_after_entry%2Cstate_abbr%2Cfour_year_graduation_rate%2Cin_state_tuition%2Con_campus_housing_available";
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     // You can await here
-  //     const response = await MyAPI.getData();
-  //     const data = await response.json();
-  //     const college = data.colleges;
-  //     return college;
-  //     // ...
-  //   }
-  //   setCurrentCollege(fetchData());
-  // }, []);
-  useEffect(async () => {
-    setCurrentCollege(await actions.getCollegesByID(params.collegeUnitId));
+
+  useEffect(() => {
+    async function fetchData() {
+      // You can await here
+      const answer = await actions.getCollegesByID(params.collegeUnitId);
+      setCurrentCollege(answer);
+      console.log(answer);
+      return answer;
+      // ...
+    }
+    fetchData();
+    console.log(currentCollege);
   }, []);
+  // useEffect(async () => {
+  //   setCurrentCollege(await actions.getCollegesByID(params.collegeUnitId));
+  // }, []);
   if (currentCollege === null || currentCollege === undefined) {
     return (
       <Image
