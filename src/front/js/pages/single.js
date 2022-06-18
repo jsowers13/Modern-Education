@@ -23,6 +23,14 @@ export const Bootcamp = (props) => {
     fetchData();
     console.log(currentBootCamp);
   }, []);
+  if (currentBootCamp === null || currentBootCamp === undefined) {
+    return (
+      <Image
+        className="mx-auto d-block"
+        src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif"
+      />
+    );
+  }
   return (
     <div>
       <div className="jumbotron mx-5">
