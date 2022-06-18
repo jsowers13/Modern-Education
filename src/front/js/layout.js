@@ -35,7 +35,7 @@ const Layout = () => {
             <Route exact path="/bootcamp/:theid">
               <Bootcamp />
             </Route>
-            <Route exact path="/college/:theid">
+            <Route exact path="/college/:collegeUnitId">
               <College />
             </Route>
             <Route exact path="/signup">

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { Image } from "react-bootstrap";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 
@@ -92,22 +93,46 @@ Bootcamp.propTypes = {
 export const College = (props) => {
   const { store, actions } = useContext(Context);
   const params = useParams();
+  const [currentCollege, setCurrentCollege] = useState(null);
+  const MyAPI =
+    "https://api.collegeai.com/v1/api/college/info?api_key=gdxwlZ51B2qe4BR8Ha3XghIV&college_unit_ids=" +
+    params.collegeUnitId +
+    "&info_ids=website%2Cavg_cost_of_attendance%2Clogo_image%2Cshort_description%2Cmedian_earnings_six_yrs_after_entry%2Cmedian_earnings_ten_yrs_after_entry%2Cstate_abbr%2Cfour_year_graduation_rate%2Cin_state_tuition%2Con_campus_housing_available";
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     // You can await here
+  //     const response = await MyAPI.getData();
+  //     const data = await response.json();
+  //     const college = data.colleges;
+  //     return college;
+  //     // ...
+  //   }
+  //   setCurrentCollege(fetchData());
+  // }, []);
+  useEffect(async () => {
+    setCurrentCollege(await actions.getCollegesByID(params.collegeUnitId));
+  }, []);
+  if (currentCollege === null || currentCollege === undefined) {
+    return (
+      <Image
+        className="mx-auto d-block"
+        src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif"
+      />
+    );
+  }
   return (
     <div className="overflow-scroll">
       <div className="jumbotron mx-5">
         <div className="row d-flex justify-content-around">
           <div className="col-6 d-flex justify-content-end">
-            <img
-              src={store.colleges[params.theid].logoImage}
-              alt="College Logo"
-            ></img>
+            <img src={currentCollege.logoImage} alt="College Logo"></img>
           </div>
           <div className="col-6 d-flex justify-content-center align-items-center">
-            <h1 className="display-4">{store.colleges[params.theid].name}</h1>
+            <h1 className="display-4">{currentCollege.name}</h1>
           </div>
         </div>
 
-        <p className="lead">{store.colleges[params.theid].longDescription}</p>
+        <p className="lead">{currentCollege.longDescription}</p>
         <hr className="my-4"></hr>
         <div className="row d-flex justify-content-around">
           <div className="col-1 text-center">Website</div>
@@ -120,34 +145,34 @@ export const College = (props) => {
         <hr className="my-2"></hr>
         <div className="row d-flex justify-content-around">
           <div className="col-1 text-center">
-            <a href={"https://" + store.colleges[params.theid].website}>
-              {store.colleges[params.theid].website}
+            <a href={"https://" + currentCollege.website}>
+              {currentCollege.website}
             </a>
           </div>
           <div className="col-1 text-center">
-            {store.colleges[params.theid].avgCostOfAttendance}
+            {currentCollege.avgCostOfAttendance}
           </div>
           <div className="col-1 text-center">
-            {store.colleges[params.theid].fourYearGraduationRate}
+            {currentCollege.fourYearGraduationRate}
           </div>
           <div className="col-1 text-center">
-            {store.colleges[params.theid].medianEarningsSixYrsAfterEntry}
+            {currentCollege.medianEarningsSixYrsAfterEntry}
           </div>
           <div className="col-1 text-center">
-            {store.colleges[params.theid].medianEarningsTenYrsAfterEntry}
+            {currentCollege.medianEarningsTenYrsAfterEntry}
           </div>
           <div className="col-1 text-center">
-            {store.colleges[params.theid].onCampusHousingAvailable}
+            {currentCollege.onCampusHousingAvailable}
           </div>
         </div>
         <br></br>
         <div className="d-flex justify-content-center links">
-          <a href={"https://" + store.colleges[params.theid].website}>
+          <a href={"https://" + currentCollege.website}>
             <button className="btn btn-lg btn-primary">Learn More</button>
           </a>
           <button
             className="btn btn-primary btn-lg mx-5"
-            onClick={() => actions.addFavorite(store.colleges[params.theid])}
+            onClick={() => actions.addFavorite(currentCollege)}
           >
             Save{" "}
           </button>

@@ -81,16 +81,77 @@ export const BootcampSearch = () => {
         </div>
 
         <div className="card-body d-grid">
-          <a
+          {/* <a
             href="#"
             className="card-link btn btn-lg btn-success col-9 mx-auto"
             onClick={searchFunction}
           >
             Search
-          </a>
+          </a> */}
+          <button
+            type="button"
+            className="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#schoolSearchResults"
+            onClick={searchFunction}
+          >
+            Search for BootCamps!
+          </button>
+
+          <div
+            className="modal fade"
+            id="schoolSearchResults"
+            tabIndex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="exampleModalLabel">
+                    Check Out These Schools!
+                  </h5>
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Back to Search
+                  </button>
+                </div>
+                <div className="modal-body">
+                  <div className="card-deck-wrapper">
+                    {searchResults.map((item, index) => {
+                      return (
+                        <SchoolCard
+                          school_name={item.name}
+                          pic_url={item.logo}
+                          tuition={item.tuition}
+                          skill_level={item.minimum_skill_level}
+                          time_to_complete={item.length_in_weeks + " weeks"}
+                          key={index}
+                          index={index}
+                          id={item.school_id}
+                        />
+                      );
+                    })}
+                  </div>
+                </div>
+                <div className="modal-footer">
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Back to Search
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="card-deck-wrapper">
+      {/* <div className="card-deck-wrapper">
         {searchResults.map((item, index) => {
           return (
             <SchoolCard
@@ -105,7 +166,7 @@ export const BootcampSearch = () => {
             />
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 };
@@ -188,16 +249,72 @@ export const CollegeSearch = () => {
         </div>
 
         <div className="card-body d-grid">
-          <a
-            href="#"
-            className="card-link btn btn-lg btn-success col-9 mx-auto"
+          <button
+            type="button"
+            className="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#collegeSearchModal"
             onClick={searchFunction}
           >
-            Search
-          </a>
+            Search for Colleges!
+          </button>
+
+          <div
+            className="modal fade"
+            id="collegeSearchModal"
+            tabIndex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="exampleModalLabel">
+                    Check Out These Schools!
+                  </h5>
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Back to Search
+                  </button>
+                </div>
+                <div className="modal-body">
+                  <div className="card-deck-wrapper">
+                    {searchResults.map((item, index) => {
+                      return (
+                        <CollegeCard
+                          school_name={item.name}
+                          pic_url={item.logoImage}
+                          tuition={item.avgCostOfAttendance}
+                          state={item.stateAbbr}
+                          six_year_earnings={
+                            item.medianEarningsSixYrsAfterEntry
+                          }
+                          key={index}
+                          index={index}
+                          id={item.collegeUnitId}
+                        />
+                      );
+                    })}
+                  </div>
+                </div>
+                <div className="modal-footer">
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Go Back to Search
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="card-deck-wrapper">
+      {/* <div className="card-deck-wrapper">
         {searchResults.map((item, index) => {
           return (
             <CollegeCard
@@ -212,7 +329,7 @@ export const CollegeSearch = () => {
             />
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 };
