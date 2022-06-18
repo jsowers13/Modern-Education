@@ -17,7 +17,7 @@ export const SchoolCard = (props) => {
         <h6>Skill Level: {props.skill_level}</h6>
         <div className="card-footer bg-white border-0">
           <Link
-            to={"/bootcamp/" + [props.index]}
+            to={"/bootcamp/" + [props.id]}
             style={{ textDecoration: "none", color: "white" }}
           >
             <button className="btn btn-success" data-bs-dismiss="modal">
