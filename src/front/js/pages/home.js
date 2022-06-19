@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
@@ -15,9 +15,10 @@ import {
   CoInfo,
 } from "../component/paragraphs.js";
 
+
 export const Home = () => {
   const { store, actions } = useContext(Context);
-
+  
   return (
     <div className="text-center mt-5 vh-100">
       {!store.activeUser ? (
@@ -40,7 +41,8 @@ export const Home = () => {
             <Row>
               <Col xs={6} md={4}>
                 {" "}
-                <Button
+                <a
+                  className="btn btn-primary"
                   data-bs-toggle="collapse"
                   href="#multiCollapseExample1"
                   role="button"
@@ -48,36 +50,40 @@ export const Home = () => {
                   aria-controls="multiCollapseExample1"
                 >
                   Computer Science Degree
-                </Button>
+                </a>
               </Col>
 
               <Col xs={6} md={4}>
-                <Button
+                <button
+                  className="btn btn-primary"
+                  type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#multiCollapseExample2"
                   aria-expanded="false"
                   aria-controls="multiCollapseExample2"
                 >
                   Coding Bootcamp
-                </Button>
+                </button>
               </Col>
               <Col xs={6} md={4}>
-                <Button
+                <button
+                  className="btn btn-primary"
+                  type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#multiCollapseExample3"
                   aria-expanded="false"
                   aria-controls="multiCollapseExample3"
                 >
                   Career oportunities
-                </Button>
+                </button>
               </Col>
             </Row>
-            <Row className="text-center" >
+            <Row className="text-center">
               <Col>
                 <div
-                  className="collapse multi-collapse"
+                  className="collapse multi-collapse, position-absolute top-75 start-50 translate-middle-x"
                   id="multiCollapseExample1"
-                  >
+                >
                   <Tabs
                     defaultActiveKey="general"
                     id="uncontrolled-tab-example"
@@ -88,10 +94,18 @@ export const Home = () => {
                         <CsGenInfo />
                       </div>
                     </Tab>
-                    <Tab eventKey="pros" title="Pros" className="bg-white">
+                    <Tab
+                      eventKey="pros"
+                      title="Pros"
+                      className="card card-body bg-white"
+                    >
                       <CsPros />
                     </Tab>
-                    <Tab eventKey="cons" title="Cons" className="bg-white">
+                    <Tab
+                      eventKey="cons"
+                      title="Cons"
+                      className="card card-body bg-white"
+                    >
                       <CsCons />
                     </Tab>
                   </Tabs>
@@ -99,7 +113,7 @@ export const Home = () => {
               </Col>
               <Col>
                 <div
-                  className="collapse multi-collapse"
+                  className="collapse multi-collapse, position-absolute top-75 start-50 translate-middle-x"
                   id="multiCollapseExample2"
                 >
                   <Tabs
@@ -124,7 +138,7 @@ export const Home = () => {
             </Row>
             <Col>
               <div
-                className="collapse multi-collapse"
+                className=" multi-collapse, position-absolute top-75 start-50 translate-middle-x"
                 id="multiCollapseExample3"
               >
                 <Tabs
@@ -132,11 +146,10 @@ export const Home = () => {
                   id="uncontrolled-tab-example"
                   className="pillstyle mb-5 pt-5"
                 >
-                  <Tab eventKey="general" title="Info">
-                    <div className="card card-body">
+                  <Tab eventKey="general">
+                    <div className="card card-body ">
                       <CoInfo />
-                      Here you might find a general idea of which options you
-                      have available so you can start your career!
+                     
                     </div>
                   </Tab>
                 </Tabs>
@@ -165,73 +178,6 @@ export const Home = () => {
           <iframe src="https://www.youtube.com/watch?v=t6wZR2P-ZqA"></iframe> */}
         </div>
       ) : (
-        // <div className="background vh-100">
-        //   <div className="container py-5 h-100">
-        //     <div className="row d-flex align-items-center h-100">
-        //       <div className="col-4">
-        //         <div
-        //           className="card signupCardBackground shadow-2-strong"
-        //           style={{ borderRadius: "1rem" }}
-        //         >
-        //           <div className="card-body p-5 text-center">
-        //             <ul
-        //               className="nav d-flex justify-content-center"
-        //               id="myTab"
-        //               role="tablist"
-        //             />
-        //             <div className="form input d-flex justify-content-center">
-        //               <form className="loginForm">
-        //                 <Tabs
-        //                   defaultActiveKey="general"
-        //                   id="uncontrolled-tab-example"
-        //                   className="pillstyle mb-5 pt-5"
-        //                 >
-        //                   <Tab eventKey="general" title="General Info"></Tab>
-        //                   <Tab eventKey="pros" title="Pros"></Tab>
-        //                   <Tab eventKey="cons" title="Cons"></Tab>
-        //                 </Tabs>
-        //                 <br />
-        //               </form>
-        //             </div>
-        //           </div>
-        //         </div>
-        //       </div>
-        //     </div>
-        //   </div>
-
-        //   <div className="container py-5 h-100">
-        //     <div className="row d-flex align-items-center h-100">
-        //       <div className="col-4">
-        //         <div
-        //           className="card signupCardBackground shadow-2-strong"
-        //           style={{ borderRadius: "1rem" }}
-        //         >
-        //           <div className="card-body p-5 text-center">
-        //             <ul
-        //               className="nav d-flex justify-content-center"
-        //               id="myTab"
-        //               role="tablist"
-        //             />
-        //             <div className="form input d-flex justify-content-center">
-        //               <form className="loginForm">
-        //                 <Tabs
-        //                   defaultActiveKey="general"
-        //                   id="uncontrolled-tab-example"
-        //                   className="pillstyle mb-5 pt-5"
-        //                 >
-        //                   <Tab eventKey="general" title="General Info"></Tab>
-        //                   <Tab eventKey="pros" title="Pros"></Tab>
-        //                   <Tab eventKey="cons" title="Cons"></Tab>
-        //                 </Tabs>
-        //                 <br />
-        //               </form>
-        //             </div>
-        //           </div>
-        //         </div>
-        //       </div>
-        //     </div>
-        //   </div>
-        // </div>
         <div>
           <h1>Welcome to Modern Education</h1>
           <h2>
