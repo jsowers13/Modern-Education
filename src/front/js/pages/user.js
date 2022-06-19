@@ -19,12 +19,12 @@ export const User = (props) => {
         </div>
       ) : (
         <div className="container d-flex flex-column align-items-center mb-5">
-          <div>
+          {/* <div>
             {store.activeUser
               ? store.activeUser.favorites.map((item, index) => {
                   return (
                     <FavoriteCard
-                      school_name={item.school_name}
+                      school_name={item.name}
                       pic_url={item.logo}
                       tuition={item.tuition}
                       skill_level={item.minimum_skill_level}
@@ -36,17 +36,9 @@ export const User = (props) => {
                   );
                 })
               : ""}
-          </div>
+          </div> */}
           <Search />
           <br></br>
-          {/* <SchoolCard
-            school_name="4 Geeks Academy"
-            pic_url="https://www.beaconcouncil.com/wp-content/uploads/2018/08/4_geeks_academy_logo-300x150.jpg"
-            state="Online"
-            tuition="cheap"
-            time_to_complete="almost nothing"
-            id="0"
-          /> */}
         </div>
       )}
     </div>

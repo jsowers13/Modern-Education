@@ -10,8 +10,8 @@ export const Navbar = () => {
   const history = useHistory();
 
   const handleLogOut = () => {
-    sessionStorage.clear();
-    history.push("/login");
+    localStorage.clear();
+    history.push("/");
     location.reload();
   };
 

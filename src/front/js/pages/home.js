@@ -48,6 +48,7 @@ export const Home = () => {
                   role="button"
                   aria-expanded="false"
                   aria-controls="multiCollapseExample1"
+                  name="selector"
                 >
                   Computer Science Degree
                 </a>
@@ -61,6 +62,7 @@ export const Home = () => {
                   data-bs-target="#multiCollapseExample2"
                   aria-expanded="false"
                   aria-controls="multiCollapseExample2"
+                  name="selector"
                 >
                   Coding Bootcamp
                 </button>
@@ -73,6 +75,7 @@ export const Home = () => {
                   data-bs-target="#multiCollapseExample3"
                   aria-expanded="false"
                   aria-controls="multiCollapseExample3"
+                  name="selector"
                 >
                   Career oportunities
                 </button>

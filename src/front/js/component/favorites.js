@@ -21,7 +21,7 @@ export const FavoriteDropdown = () => {
       >
         Saved
       </Dropdown.Toggle>
-      <Dropdown.Menu>
+      {/* <Dropdown.Menu>
         {store.activeUser.favorites.length > 0 ? (
           store.activeUser.favorites.map((selected, i) => (
             <Dropdown.Item
@@ -43,7 +43,7 @@ export const FavoriteDropdown = () => {
         ) : (
           <DropdownItem>There are no favorites</DropdownItem>
         )}
-      </Dropdown.Menu>
+      </Dropdown.Menu> */}
     </Dropdown>
   );
 };
