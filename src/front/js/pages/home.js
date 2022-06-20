@@ -155,9 +155,16 @@ export const Home = () => {
             </div>
           </Col>
         </div>
-        {/* from flask import Flask app = Flask(__name__) @app.route('/') def
-          homepage(): return """ */}
-        {/* <h1>First Video</h1>
+      </div>
+    </div>
+  );
+};
+{
+  /* from flask import Flask app = Flask(__name__) @app.route('/') def
+          homepage(): return """ */
+}
+{
+  /* <h1>First Video</h1>
           <iframe
             src="https://www.youtube.com/watch?v=34sxyECkEkw"
             width="500"
@@ -172,13 +179,12 @@ export const Home = () => {
           frameborder="0"
           allowfullscreen
           ></iframe>
-          """ if __name__ == '__main__': app.run(debug=True, use_reloader=True) */}
-        {/* <h1>First video</h1>
-          <iframe src="https://www.youtube.com/watch?v=t6wZR2P-ZqA"></iframe> */}
-      </div>
-    </div>
-  );
-};
+          """ if __name__ == '__main__': app.run(debug=True, use_reloader=True) */
+}
+{
+  /* <h1>First video</h1>
+          <iframe src="https://www.youtube.com/watch?v=t6wZR2P-ZqA"></iframe> */
+}
 // <div className="background vh-100">
 //   <div className="container py-5 h-100">
 //     <div className="row d-flex align-items-center h-100">
