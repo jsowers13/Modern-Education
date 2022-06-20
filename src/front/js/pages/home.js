@@ -14,11 +14,11 @@ import {
   CbCons,
   CoInfo,
 } from "../component/paragraphs.js";
-
+import { Video } from "../component/videos";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
-  
+
   return (
     <div className="text-center mt-5 vh-100">
       {!store.activeUser ? (
@@ -141,7 +141,7 @@ export const Home = () => {
             </Row>
             <Col>
               <div
-                className=" multi-collapse, position-absolute top-75 start-50 translate-middle-x"
+                className=" collapse multi-collapse, position-absolute top-75 start-50 translate-middle-x"
                 id="multiCollapseExample3"
               >
                 <Tabs
@@ -150,35 +150,14 @@ export const Home = () => {
                   className="pillstyle mb-5 pt-5"
                 >
                   <Tab eventKey="general">
-                    <div className="card card-body ">
+                    <div className="card card-body  bg-white">
                       <CoInfo />
-                     
                     </div>
                   </Tab>
                 </Tabs>
               </div>
             </Col>
           </div>
-          {/* from flask import Flask app = Flask(__name__) @app.route('/') def
-          homepage(): return """ */}
-          {/* <h1>First Video</h1>
-          <iframe
-            src="https://www.youtube.com/watch?v=34sxyECkEkw"
-            width="500"
-            height="300"
-            frameborder="0"
-            allowfullscreen
-          ></iframe>
-          <iframe
-          src="https://www.youtube.com/watch?v=-dYwGxLulOY"
-          width="500"
-          height="300"
-          frameborder="0"
-          allowfullscreen
-          ></iframe>
-          """ if __name__ == '__main__': app.run(debug=True, use_reloader=True) */}
-          {/* <h1>First video</h1>
-          <iframe src="https://www.youtube.com/watch?v=t6wZR2P-ZqA"></iframe> */}
         </div>
       ) : (
         <div>
@@ -190,6 +169,9 @@ export const Home = () => {
           <Button className="btn btn-success btn-lg">
             Click Here to Search for Schools!
           </Button>
+          <div>
+            <Video />
+          </div>
         </div>
       )}
     </div>
