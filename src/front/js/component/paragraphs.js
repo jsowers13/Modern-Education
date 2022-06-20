@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link, useParams } from "react-router-dom";
 import { SchoolCard } from "./schoolcard.js";
+import { Button, Row, Col, Tab, Tabs } from "react-bootstrap";
 
 export const CsGenInfo = () => {
   return (
@@ -28,21 +29,20 @@ export const CsGenInfo = () => {
 export const CsPros = () => {
   return (
     <div>
-      <h5>Depth:</h5>
       <p>
-         Simply put, going for a CS degree at a traditional four-year university
-        will allow the student to be more methodical in their approach to the
-        field. Entry-level classNamees are taken at a younger age and allow one
-        to mature alongside their subject material at a sustainable pace. The
-        slower pace of a traditional university makes it possible for the
-        student to really mull over concepts and (hopefully) gain a thorough
-        understanding of the theory behind foundational skills being taught.{" "}
+        {" "}
+        <b>Depth:</b> Simply put, going for a CS degree at a traditional
+        four-year university will allow the student to be more methodical in
+        their approach to the field. Entry-level classNamees are taken at a
+        younger age and allow one to mature alongside their subject material at
+        a sustainable pace. The slower pace of a traditional university makes it
+        possible for the student to really mull over concepts and (hopefully)
+        gain a thorough understanding of the theory behind foundational skills
+        being taught.{" "}
       </p>
-
-      <h5>Breadth:</h5>
       <p>
-         While you study the topics and problems assigned by your course
-        professors, they’ll inevitably serve as a spark of inspiration to
+        <b>Breadth:</b> While you study the topics and problems assigned by your
+        course professors, they’ll inevitably serve as a spark of inspiration to
         investigate other approaches and theories to leverage as you work your
         way through your className texts. Since time is on your side, you’ll be
         able to thoroughly look into the why and how of any problem you may run
@@ -50,18 +50,16 @@ export const CsPros = () => {
         education studies, which will expose you to subjects that will hopefully
         enrich your approach to your career.
       </p>
-
-      <h5>Prestige:</h5>
       <p>
-        At the risk of sounding pretentious, a degree still means a lot in
-        today’s job market. People will assert that employers just care about if
-        you can do the work needed, but there is still a huge part of the market
-        that gives the CS graduate complete preference over the competition.
-        When a potential employer or recruiter sees that CS degree on your
-        resume, it communicates that you have a thorough understanding of the
-        fundamental theories and concepts of computing as well as the grit and
-        determination to stick with a difficult major for the entirety of the
-        four-year program.
+        <b>Prestige:</b> At the risk of sounding pretentious, a degree still
+        means a lot in today’s job market. People will assert that employers
+        just care about if you can do the work needed, but there is still a huge
+        part of the market that gives the CS graduate complete preference over
+        the competition. When a potential employer or recruiter sees that CS
+        degree on your resume, it communicates that you have a thorough
+        understanding of the fundamental theories and concepts of computing as
+        well as the grit and determination to stick with a difficult major for
+        the entirety of the four-year program.
       </p>
     </div>
   );
@@ -70,9 +68,8 @@ export const CsPros = () => {
 export const CsCons = () => {
   return (
     <div>
-      <h5>Cost:</h5>
       <p>
-         No matter how you slice it, college is expensive, and often
+        <b>Cost:</b> No matter how you slice it, college is expensive, and often
         preventatively so. If a student is indeed able to swing the cost of a
         four-year degree, it comes with a huge price tag which may ironically
         prevent the graduate from realizing the lifestyle they went to college
@@ -82,24 +79,22 @@ export const CsCons = () => {
         the lowest bar of entry with a Master’s or PhD now being required for a
         person to set themselves apart from the competition.
       </p>
-
-      <h5>Time:</h5>
       <p>
-         Four years is a long time, and often a full-time student may feel like
-        they are sitting in a state of arrested development as they devote the
-        majority of their waking hours getting to className, sat in front of a
-        computer screen cranking out assignments, or with their nose buried in a
-        book. This often makes it impossible to hold down a job, which means
-        that your time spent at school negates the possibility for real world
-        experience to build on the theory you’re learning in className.
+        <b>Time:</b> Four years is a long time, and often a full-time student
+        may feel like they are sitting in a state of arrested development as
+        they devote the majority of their waking hours getting to className, sat
+        in front of a computer screen cranking out assignments, or with their
+        nose buried in a book. This often makes it impossible to hold down a
+        job, which means that your time spent at school negates the possibility
+        for real world experience to build on the theory you’re learning in
+        className.
       </p>
       <p>
-        <strong>In summary,</strong> a CS degree’s advantages lean toward
-        quality over quantity. You will be going about it at a slower clip, but
-        there will be plenty of opportunity to dig deeper into the material at
-        your own pace. This will come at a cost of one’s time and energy going
-        exclusively into the course of study, especially if done on a full-time
-        basis.
+        In summary, a CS degree’s advantages lean toward quality over quantity.
+        You will be going about it at a slower clip, but there will be plenty of
+        opportunity to dig deeper into the material at your own pace. This will
+        come at a cost of one’s time and energy going exclusively into the
+        course of study, especially if done on a full-time basis.
       </p>
     </div>
   );
@@ -109,9 +104,24 @@ export const CbInfo = () => {
   return (
     <div>
       <p>
-        Coding Bootcamp is a shorter and more focused path into coding making
-        you job ready on the technologies that are most used today by all
-        compnies in the Globe.
+        Coding bootcamps require several months of intense, practical,
+        project-based training. Bootcamp enrollees will encounter in-person,
+        online, hybrid, full-time, and part-time formats, delivered
+        synchronously and asynchronously. Unlike massive open online courses,
+        coding bootcamps provide a scheduled, highly structured learning
+        environment with experienced instructors guiding you from start to
+        finish.
+      </p>
+      <p>
+        Learners can choose coding bootcamps focused on specific tech job
+        sectors. Popular emphases include full-stack development, data science,
+        cybersecurity, UX/UI, and software engineering.
+      </p>
+      <p>
+        Bootcamps teach students how to code and apply code to workplace
+        projects. These programs commonly cover programming languages like
+        JavaScript, SQL, and Python, along with modules on current industry
+        software, tools, and techniques.
       </p>
     </div>
   );
@@ -179,16 +189,14 @@ export const CbCons = () => {
 
 export const CoInfo = () => {
   return (
-    <div className="mb-5">
+    <div>
       <p>
         When it comes to comparing a bootcamp vs. college, both can lead to
         ample career opportunities for graduates. Both equip students with
         marketable tech skills and offer career preparation services. Most
         bootcamps include career coaching, resume help, mock interviews, and
         portfolio reviews, along with opportunities to network with alumni,
-        employers, and other industry professionals. Career centers at most
-        colleges offer similar services, though they may not be as focused as a
-        bootcamp on providing specialized career support for tech disciplines.
+        employers, and other industry professionals.
       </p>
       <p>
         Bootcamps do generally have a strong track record for job placement.
@@ -206,20 +214,9 @@ export const CoInfo = () => {
         degree. With a bachelor's degree in computer science, graduates often
         secure jobs as web developers, software engineers, and computer systems
         analysts.
-      </p>
-      <p>
-        Who says you must choose between a coding bootcamp vs. college? Coding
-        bootcamps and bachelor's degrees in computer science both serve as
-        viable pathways to tech careers.
-      </p>
-      <p>
-        Many degree-holders attend coding bootcamps to brush up on their skills
-        or learn a new specialty. Coding bootcamps can complement a college
-        education since bootcamps quickly alter their curricula to reflect
-        industry standards and changes in technology. Additionally, some
-        employers may pay for you to attend a bootcamp if it benefits the
-        company.
-      </p>
+      </p>   
+      <p>Here you might find a general idea of which options you
+                      have available so you can start your career!</p>
     </div>
   );
 };

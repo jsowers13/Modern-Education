@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
@@ -114,8 +114,8 @@ export const Home = () => {
             </Col>
             <Col>
               <div
-                className="collapse multi-collapse"
-                id="multiCollapseExample2"
+                className=" multi-collapse, position-absolute top-75 start-50 translate-middle-x"
+                id="multiCollapseExample3"
               >
                 <Tabs
                   defaultActiveKey="general"
