@@ -114,8 +114,8 @@ export const Home = () => {
             </Col>
             <Col>
               <div
-                className=" multi-collapse, position-absolute top-75 start-50 translate-middle-x"
-                id="multiCollapseExample3"
+                className=" collapse multi-collapse"
+                id="multiCollapseExample2"
               >
                 <Tabs
                   defaultActiveKey="general"
