@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
@@ -10,6 +10,12 @@ import { Login } from "./login";
 export const User = (props) => {
   const { store, actions } = useContext(Context);
   const params = useParams();
+
+  useEffect(() => {
+    actions.getSchools();
+    actions.getColleges();
+  }, []);
+
   return (
     <div className="text-center">
       {!store.activeUser ? (
