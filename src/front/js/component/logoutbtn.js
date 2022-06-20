@@ -9,7 +9,7 @@ export const LogOutBtn = () => {
 
   const handleLogOut = () => {
     sessionStorage.clear();
-    history.push("/");
+    history.push("/login");
     location.reload();
   };
 
