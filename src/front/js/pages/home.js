@@ -171,10 +171,9 @@ export const Home = () => {
           </Col>
         </div>
       </div>
-      <div className = "mb-5">
+      <div className="mb-5">
         <Video />
       </div>
     </div>
   );
 };
-
