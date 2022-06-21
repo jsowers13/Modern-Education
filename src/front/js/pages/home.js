@@ -20,8 +20,8 @@ export const Home = () => {
   const { store, actions } = useContext(Context);
 
   return (
-    <div className="text-center mt-5 vh-100">
-      <div className="background h-100">
+    <div className="text-center background mt-5 vh-100">
+      <div className="text-white h-100">
         <h1>Welcome to Modern Education</h1>
         <h2>
           We're here to help you find the right full-stack development education
