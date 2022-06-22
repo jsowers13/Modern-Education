@@ -14,6 +14,7 @@ import {
   CbCons,
   CoInfo,
 } from "../component/paragraphs.js";
+
 import { Video } from "../component/videos";
 
 export const Home = () => {
@@ -48,22 +49,20 @@ export const Home = () => {
           </div>
         )}
 
-        <div>
-          {" "}
+        <div id="mygroup">
           <Row>
             <Col xs={6} md={4}>
-              {" "}
-              <a
+              <button
                 className="btn btn-primary"
                 data-bs-toggle="collapse"
-                href="#multiCollapseExample1"
+                data-bs-target="#multiCollapseExample1"
                 role="button"
                 aria-expanded="false"
                 aria-controls="multiCollapseExample1"
                 name="selector"
               >
                 Computer Science Degree
-              </a>
+              </button>
             </Col>
 
             <Col xs={6} md={4}>
@@ -93,82 +92,95 @@ export const Home = () => {
               </button>
             </Col>
           </Row>
-          <Row className="text-center">
+          <div className="accordion-group">
+            <Row className="text-center">
+              <Col>
+                <div
+                  className="collapse position-absolute top-75 start-50 translate-middle-x"
+                  id="multiCollapseExample1"
+                  data-bs-parent="#mygroup"
+                >
+                  <Tabs
+                    defaultActiveKey="general"
+                    id="uncontrolled-tab-example"
+                    className="pillstyle mb-5 pt-5"
+                  >
+                    <Tab eventKey="general" title="General Info">
+                      <div className="card card-body bg-white text-black">
+                        <CsGenInfo />
+                      </div>
+                    </Tab>
+                    <Tab
+                      eventKey="pros"
+                      title="Pros"
+                      className="card card-body bg-white text-black"
+                    >
+                      <CsPros />
+                    </Tab>
+                    <Tab
+                      eventKey="cons"
+                      title="Cons"
+                      className="card card-body bg-white text-black"
+                    >
+                      <CsCons />
+                    </Tab>
+                  </Tabs>
+                </div>
+              </Col>
+              <Col>
+                <div
+                  className="collapse position-absolute top-75 start-50 translate-middle-x"
+                  id="multiCollapseExample2"
+                  data-bs-parent="#mygroup"
+                >
+                  <Tabs
+                    defaultActiveKey="general"
+                    id="uncontrolled-tab-example"
+                    className="pillstyle mb-5 pt-5"
+                  >
+                    <Tab eventKey="general" title="Info">
+                      <div className="card card-body bg-white text-black">
+                        <CbInfo />
+                      </div>
+                    </Tab>
+                    <Tab
+                      eventKey="pros"
+                      title="Pros"
+                      className="bg-white text-black"
+                    >
+                      <CbPros />
+                    </Tab>
+                    <Tab
+                      eventKey="cons"
+                      title="Cons"
+                      className="bg-white text-black"
+                    >
+                      <CbCons />
+                    </Tab>
+                  </Tabs>
+                </div>
+              </Col>
+            </Row>
             <Col>
               <div
-                className="collapse multi-collapse, position-absolute top-75 start-50 translate-middle-x"
-                id="multiCollapseExample1"
+                className=" collapse position-absolute top-75 start-50 translate-middle-x"
+                id="multiCollapseExample3"
+                data-bs-parent="#mygroup"
               >
                 <Tabs
                   defaultActiveKey="general"
                   id="uncontrolled-tab-example"
                   className="pillstyle mb-5 pt-5"
                 >
-                  <Tab eventKey="general" title="General Info">
-                    <div className="card card-body bg-white">
-                      <CsGenInfo />
+                  <Tab eventKey="general">
+                    <div className="card card-body  bg-white text-black">
+                      <CoInfo />
                     </div>
-                  </Tab>
-                  <Tab
-                    eventKey="pros"
-                    title="Pros"
-                    className="card card-body bg-white"
-                  >
-                    <CsPros />
-                  </Tab>
-                  <Tab
-                    eventKey="cons"
-                    title="Cons"
-                    className="card card-body bg-white"
-                  >
-                    <CsCons />
                   </Tab>
                 </Tabs>
               </div>
             </Col>
-            <Col>
-              <div
-                className="collapse multi-collapse, position-absolute top-75 start-50 translate-middle-x"
-                id="multiCollapseExample2"
-              >
-                <Tabs
-                  defaultActiveKey="general"
-                  id="uncontrolled-tab-example"
-                  className="pillstyle mb-5 pt-5"
-                >
-                  <Tab eventKey="general" title="Info">
-                    <div className="card card-body bg-white">
-                      <CbInfo />
-                    </div>
-                  </Tab>
-                  <Tab eventKey="pros" title="Pros" className="bg-white">
-                    <CbPros />
-                  </Tab>
-                  <Tab eventKey="cons" title="Cons" className="bg-white">
-                    <CbCons />
-                  </Tab>
-                </Tabs>
-              </div>
-            </Col>
-          </Row>
-          <Col>
-            <div
-              className=" collapse multi-collapse, position-absolute top-75 start-50 translate-middle-x"
-              id="multiCollapseExample3"
-            >
-              <Tabs
-                defaultActiveKey="general"
-                id="uncontrolled-tab-example"
-                className="pillstyle mb-5 pt-5"
-              >
-                <Tab eventKey="general">
-                  <div className="card card-body  bg-white">
-                    <CoInfo />
-                  </div>
-                </Tab>
-              </Tabs>
-            </div>
-          </Col>
+          </div>
         </div>
       </div>
       <div className="mb-5">

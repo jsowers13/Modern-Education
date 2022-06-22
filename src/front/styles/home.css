@@ -17,6 +17,7 @@
     url("https://t3.ftcdn.net/jpg/02/96/19/96/240_F_296199640_u386oRVazzYoeSp3XNhDdQpMpol2nsNX.jpg");
   background-size: cover;
   background-attachment: scroll;
+  min-height: 100%;
 }
 .links {
   margin-bottom: 100px;
