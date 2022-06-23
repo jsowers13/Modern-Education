@@ -25,8 +25,7 @@ export const Home = () => {
       <div className="text-white h-100">
         <h1>Welcome to Modern Education</h1>
         <h2>
-          We're here to help you find the right full-stack development education
-          program for you!
+          We're here to help you find the right information in your computer programming education!
         </h2>
         {!store.activeUser ? (
           <div>
