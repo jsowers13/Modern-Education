@@ -7,29 +7,44 @@ export const SchoolCard = (props) => {
   const { store, actions } = useContext(Context);
 
   return (
-    <div className="card mx-auto my-5" style={{ width: 18 + "rem" }}>
-      <img src={props.pic_url} className="card-img-top" alt="..."></img>
+    <div
+      className="card mx-auto my-5"
+      style={{ maxWidth: 20 + "rem", minHeight: 30 + "rem" }}
+    >
+      <img
+        src={props.pic_url}
+        className="card-img-top mx-auto"
+        style={{
+          width: 19 + "rem",
+          height: 19 + "rem",
+          objectFit: "contain",
+        }}
+        alt="..."
+      ></img>
       <div className="card-body">
         <h5 className="card-title">{props.school_name}</h5>
 
         <h6>Tuition: {props.tuition}</h6>
         <h6>Time to Complete: {props.time_to_complete}</h6>
         <h6>Skill Level: {props.skill_level}</h6>
-        <div className="card-footer bg-white border-0">
+        <div className="card-footer bg-white border-0 ">
           <Link
             to={"/bootcamp/" + [props.id]}
             style={{ textDecoration: "none", color: "white" }}
           >
-            <button className="btn btn-success" data-bs-dismiss="modal">
+            <button
+              className="btn btn-success position-absolute bottom-0 start-50 translate-middle-x mb-2"
+              data-bs-dismiss="modal"
+            >
               Learn More
             </button>
           </Link>
-          <button
-            className="btn btn-primary ms-5"
+          {/* <button
+            className="btn btn-primary"
             onClick={() => actions.addFavorite(props.school_name)}
           >
             Save{" "}
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
@@ -49,8 +64,16 @@ export const CollegeCard = (props) => {
   const { store, actions } = useContext(Context);
 
   return (
-    <div className="card mx-auto my-5" style={{ width: 18 + "rem" }}>
-      <img src={props.pic_url} className="card-img-top" alt="..."></img>
+    <div
+      className="card mx-auto my-5"
+      style={{ maxWidth: 20 + "rem", minHeight: 32 + "rem" }}
+    >
+      <img
+        src={props.pic_url}
+        className="card-img-top mx-auto"
+        style={{ width: 19 + "rem", height: 19 + "rem", objectFit: "contain" }}
+        alt="..."
+      ></img>
       <div className="card-body">
         <h5 className="card-title">{props.school_name}</h5>
 
@@ -62,16 +85,19 @@ export const CollegeCard = (props) => {
             to={"/college/" + [props.id]}
             style={{ textDecoration: "none", color: "white" }}
           >
-            <button className="btn btn-success" data-bs-dismiss="modal">
+            <button
+              className="btn btn-success position-absolute bottom-0 start-50 translate-middle-x mb-2"
+              data-bs-dismiss="modal"
+            >
               Learn More
             </button>
           </Link>
-          <button
+          {/* <button
             className="btn btn-primary ms-5"
             onClick={() => actions.addFavorite(props.school_name)}
           >
             Save{" "}
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

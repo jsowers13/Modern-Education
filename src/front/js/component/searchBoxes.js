@@ -105,12 +105,12 @@ export const BootcampSearch = () => {
             aria-labelledby="exampleModalLabel"
             aria-hidden="true"
           >
-            <div className="modal-dialog">
+            <div className="modal-dialog modal-fullscreen">
               <div className="modal-content">
                 <div className="modal-header">
-                  <h5 className="modal-title" id="exampleModalLabel">
+                  <h3 className="modal-title mx-auto" id="exampleModalLabel">
                     Check Out These Schools!
-                  </h5>
+                  </h3>
                   <button
                     type="button"
                     className="btn btn-secondary"
@@ -120,8 +120,24 @@ export const BootcampSearch = () => {
                   </button>
                 </div>
                 <div className="modal-body">
-                  <div className="card-deck-wrapper">
-                    {searchResults.map((item, index) => {
+                  <div className="card-group">
+                    {searchResults.slice(0, 5).map((item, index) => {
+                      return (
+                        <SchoolCard
+                          school_name={item.name}
+                          pic_url={item.logo}
+                          tuition={item.tuition}
+                          skill_level={item.minimum_skill_level}
+                          time_to_complete={item.length_in_weeks + " weeks"}
+                          key={index}
+                          index={index}
+                          id={item.school_id}
+                        />
+                      );
+                    })}
+                  </div>
+                  <div className="card-group">
+                    {searchResults.slice(5, 10).map((item, index) => {
                       return (
                         <SchoolCard
                           school_name={item.name}
@@ -151,22 +167,6 @@ export const BootcampSearch = () => {
           </div>
         </div>
       </div>
-      {/* <div className="card-deck-wrapper">
-        {searchResults.map((item, index) => {
-          return (
-            <SchoolCard
-              school_name={item.name}
-              pic_url={item.logo}
-              tuition={item.tuition}
-              skill_level={item.minimum_skill_level}
-              time_to_complete={item.length_in_weeks + " weeks"}
-              key={index}
-              index={index}
-              id={item.school_id}
-            />
-          );
-        })}
-      </div> */}
     </div>
   );
 };
@@ -266,12 +266,12 @@ export const CollegeSearch = () => {
             aria-labelledby="exampleModalLabel"
             aria-hidden="true"
           >
-            <div className="modal-dialog">
+            <div className="modal-dialog modal-fullscreen">
               <div className="modal-content">
                 <div className="modal-header">
-                  <h5 className="modal-title" id="exampleModalLabel">
+                  <h3 className="modal-title mx-auto" id="exampleModalLabel">
                     Check Out These Schools!
-                  </h5>
+                  </h3>
                   <button
                     type="button"
                     className="btn btn-secondary"
@@ -281,8 +281,63 @@ export const CollegeSearch = () => {
                   </button>
                 </div>
                 <div className="modal-body">
-                  <div className="card-deck-wrapper">
-                    {searchResults.map((item, index) => {
+                  <div className="card-group">
+                    {searchResults.slice(0, 5).map((item, index) => {
+                      return (
+                        <CollegeCard
+                          school_name={item.name}
+                          pic_url={item.logoImage}
+                          tuition={item.avgCostOfAttendance}
+                          state={item.stateAbbr}
+                          six_year_earnings={
+                            item.medianEarningsSixYrsAfterEntry
+                          }
+                          key={index}
+                          index={index}
+                          id={item.collegeUnitId}
+                        />
+                      );
+                    })}
+                  </div>
+
+                  <div className="card-group">
+                    {searchResults.slice(5, 10).map((item, index) => {
+                      return (
+                        <CollegeCard
+                          school_name={item.name}
+                          pic_url={item.logoImage}
+                          tuition={item.avgCostOfAttendance}
+                          state={item.stateAbbr}
+                          six_year_earnings={
+                            item.medianEarningsSixYrsAfterEntry
+                          }
+                          key={index}
+                          index={index}
+                          id={item.collegeUnitId}
+                        />
+                      );
+                    })}
+                  </div>
+                  <div className="card-group">
+                    {searchResults.slice(10, 15).map((item, index) => {
+                      return (
+                        <CollegeCard
+                          school_name={item.name}
+                          pic_url={item.logoImage}
+                          tuition={item.avgCostOfAttendance}
+                          state={item.stateAbbr}
+                          six_year_earnings={
+                            item.medianEarningsSixYrsAfterEntry
+                          }
+                          key={index}
+                          index={index}
+                          id={item.collegeUnitId}
+                        />
+                      );
+                    })}
+                  </div>
+                  <div className="card-group">
+                    {searchResults.slice(15, 20).map((item, index) => {
                       return (
                         <CollegeCard
                           school_name={item.name}
