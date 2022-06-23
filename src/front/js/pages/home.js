@@ -183,7 +183,7 @@ export const Home = () => {
           </div>
         </div>
       </div>
-      <div className="mb-5">
+      <div>
         <Video />
       </div>
     </div>
