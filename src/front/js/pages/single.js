@@ -3,14 +3,13 @@ import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Image } from "react-bootstrap";
-import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 
 export const Bootcamp = (props) => {
   const { store, actions } = useContext(Context);
   const params = useParams();
   const [currentBootCamp, setCurrentBootCamp] = useState(null);
-
+  //These useEffects return the store to its default fetch state so that you can return to this page from a single
   useEffect(() => {
     async function fetchData() {
       // You can await here
@@ -81,22 +80,26 @@ export const Bootcamp = (props) => {
           </div>
         </div>
         <br></br>
-        <div className="d-flex justify-content-center">
+        <div className="d-flex justify-content-center links">
           <a href={currentBootCamp.website}>
-            <button className="btn btn-lg btn-primary">
+            <button className="btn btn-lg btn-primary mx-5">
               Visit School Site
             </button>{" "}
           </a>
-          <button
+          {/* <button
             className="btn btn-primary btn-lg mx-5"
             onClick={() => actions.addFavorite(currentBootCamp)}
           >
             Save{" "}
-          </button>
+          </button> */}
           <Link to="/user">
-            <span className="btn btn-primary btn-lg" href="#" role="button">
+            <button
+              className="btn btn-primary btn-lg mx-5"
+              href="#"
+              role="button"
+            >
               Back to Search
-            </span>
+            </button>
           </Link>
         </div>
       </div>
@@ -112,7 +115,7 @@ export const College = (props) => {
   const { store, actions } = useContext(Context);
   const params = useParams();
   const [currentCollege, setCurrentCollege] = useState(null);
-
+  // the useEffect here sets the colleges variable in the store to the current college, so that when you come back to the page from an external page, it renders correctly
   useEffect(() => {
     async function fetchData() {
       // You can await here
@@ -184,18 +187,24 @@ export const College = (props) => {
         <br></br>
         <div className="d-flex justify-content-center links">
           <a href={"https://" + currentCollege.website}>
-            <button className="btn btn-lg btn-primary">Learn More</button>
+            <button className="btn btn-lg btn-primary mx-5">
+              Visit School Site
+            </button>
           </a>
-          <button
+          {/* <button
             className="btn btn-primary btn-lg mx-5"
             onClick={() => actions.addFavorite(currentCollege)}
           >
             Save{" "}
-          </button>
+          </button> */}
           <Link to="/user">
-            <span className="btn btn-primary btn-lg" href="#" role="button">
+            <button
+              className="btn btn-primary btn-lg mx-5"
+              href="#"
+              role="button"
+            >
               Back to Search
-            </span>
+            </button>
           </Link>
         </div>
       </div>

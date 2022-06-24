@@ -158,7 +158,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       getCollegesByID: async (collegeUnitId) => {
         console.log(collegeUnitId);
         const response = await fetch(
-          `https://api.collegeai.com/v1/api/college/info?api_key=gdxwlZ51B2qe4BR8Ha3XghIV&college_unit_ids=${collegeUnitId}&info_ids=website%2Cavg_cost_of_attendance%2Clogo_image%2Cshort_description%2Cmedian_earnings_six_yrs_after_entry%2Cmedian_earnings_ten_yrs_after_entry%2Cstate_abbr%2Cfour_year_graduation_rate%2Cin_state_tuition%2Con_campus_housing_available`
+          `https://api.collegeai.com/v1/api/college/info?api_key=gdxwlZ51B2qe4BR8Ha3XghIV&college_unit_ids=${collegeUnitId}&info_ids=website%2Cavg_cost_of_attendance%2Clogo_image%2Cshort_description%2Cmedian_earnings_six_yrs_after_entry%2Cmedian_earnings_ten_yrs_after_entry%2Cstate_abbr%2Cfour_year_graduation_rate%2Cin_state_tuition%2Con_campus_housing_available%2Clong_description`
         );
         const data = await response.json();
         setStore({ colleges: data.colleges });
