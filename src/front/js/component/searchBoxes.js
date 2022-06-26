@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link, useParams } from "react-router-dom";
 import { SchoolCard, CollegeCard } from "./schoolcard.js";
+import "..//..//styles/home.css";
 
 export const BootcampSearch = () => {
   const { store, actions } = useContext(Context);
@@ -119,7 +120,7 @@ export const BootcampSearch = () => {
                     Back to Search
                   </button>
                 </div>
-                <div className="modal-body">
+                <div className="modal-body pb-5 background">
                   <div className="card-group">
                     {searchResults.slice(0, 5).map((item, index) => {
                       return (
@@ -280,7 +281,7 @@ export const CollegeSearch = () => {
                     Back to Search
                   </button>
                 </div>
-                <div className="modal-body">
+                <div className="modal-body background p-5">
                   <div className="card-group">
                     {searchResults.slice(0, 5).map((item, index) => {
                       return (

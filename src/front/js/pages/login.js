@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import "../../styles/login.css";
 
 export const Login = () => {
   const { store, actions } = useContext(Context);
@@ -33,8 +34,8 @@ export const Login = () => {
     location.reload();
   } else {
     return (
-      <div className="container d-flex justify-content-center">
-        <div className="card w-50">
+      <div className="container d-flex justify-content-center vh-100">
+        <div className="card w-50 login mt-5">
           <div className="card-body">
             <h5 className="card-title">Login</h5>
             <div className="card-text">

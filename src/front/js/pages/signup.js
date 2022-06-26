@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import "../../styles/login.css";
 
 export const Signup = () => {
   const { store, actions } = useContext(Context);
@@ -9,8 +10,8 @@ export const Signup = () => {
   const [password, setPassword] = useState("");
 
   return (
-    <div className="container d-flex justify-content-center">
-      <div className="card w-50">
+    <div className="container d-flex justify-content-center vh-100">
+      <div className="card w-50 signup mt-5">
         <div className="card-body">
           <h5 className="card-title">Signup</h5>
           <div className="card-text">
