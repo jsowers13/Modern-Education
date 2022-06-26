@@ -19,9 +19,13 @@ body {
   background-attachment: scroll;
   min-height: 100%;
   background-color: rgba(0, 105, 105, 0.534);
+  text-align: none;
 }
 .videos {
   padding-bottom: 75px;
+  position: relative;
+  margin-top: -10rem;
+  
 }
 /*This code was the original code for the background. Moved code to body to apply to entire site and cover entire page*/
 .background {
