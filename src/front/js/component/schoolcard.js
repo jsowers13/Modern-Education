@@ -8,7 +8,7 @@ export const SchoolCard = (props) => {
 
   return (
     <div
-      className="card mx-auto my-5"
+      className="card mx-auto my-5 rounded"
       style={{ maxWidth: 20 + "rem", minHeight: 30 + "rem" }}
     >
       <img
@@ -65,7 +65,7 @@ export const CollegeCard = (props) => {
 
   return (
     <div
-      className="card mx-auto my-5"
+      className="card mx-auto my-5 rounded"
       style={{ maxWidth: 20 + "rem", minHeight: 32 + "rem" }}
     >
       <img

@@ -31,18 +31,22 @@ export const Bootcamp = (props) => {
     );
   }
   return (
-    <div>
-      <div className="jumbotron mx-5">
+    <div className="vh-100 vw-100 text-white school-background">
+      <div className="jumbotron p-5">
         <div className="row d-flex justify-content-around">
-          <div className="col-6 d-flex justify-content-end">
-            <img src={currentBootCamp.logo} alt=""></img>
+          <div className="col-6 d-flex justify-content-center">
+            <img
+              src={currentBootCamp.logo}
+              alt=""
+              style={{ maxWidth: 600 + "px" }}
+            ></img>
           </div>
           <div className="col-6 d-flex justify-content-center align-items-center">
-            <h1 className="display-4">{currentBootCamp.school_name}</h1>
+            <h1 className="display-1">{currentBootCamp.name}</h1>
           </div>
         </div>
 
-        <p className="lead">{currentBootCamp.description}</p>
+        <p className="lead text-center m-5">{currentBootCamp.description}</p>
         <hr className="my-4"></hr>
         <div className="row d-flex justify-content-around">
           <div className="col-1 text-center">Contact</div>
@@ -86,7 +90,9 @@ export const Bootcamp = (props) => {
               Visit School Site
             </button>{" "}
           </a>
-          {/* <button
+          {/* Favorites button removed because functionality is not attainable with non-integrated api's 
+          
+          <button
             className="btn btn-primary btn-lg mx-5"
             onClick={() => actions.addFavorite(currentBootCamp)}
           >
@@ -128,9 +134,7 @@ export const College = (props) => {
     fetchData();
     console.log(currentCollege);
   }, []);
-  // useEffect(async () => {
-  //   setCurrentCollege(await actions.getCollegesByID(params.collegeUnitId));
-  // }, []);
+
   if (currentCollege === null || currentCollege === undefined) {
     return (
       <Image
@@ -140,18 +144,25 @@ export const College = (props) => {
     );
   }
   return (
-    <div className="overflow-scroll">
-      <div className="jumbotron mx-5">
-        <div className="row d-flex justify-content-around">
-          <div className="col-6 d-flex justify-content-end">
+    <div className="overflow-scroll text-white school-background">
+      <div className="jumbotron m-5">
+        <div className="row d-flex justify-content-between">
+          <div className="col-6 d-flex justify-content-center">
             <img src={currentCollege.logoImage} alt="College Logo"></img>
           </div>
           <div className="col-6 d-flex justify-content-center align-items-center">
-            <h1 className="display-4">{currentCollege.name}</h1>
+            <h1 className="display-1">{currentCollege.name}</h1>
           </div>
         </div>
+        {currentCollege.longDescription ? (
+          <p className="lead">currentCollege.longDescription</p>
+        ) : (
+          <h1 className="text-center m-5 p-5">
+            {" "}
+            More information on this school can be found at the website below!
+          </h1>
+        )}
 
-        <p className="lead">{currentCollege.longDescription}</p>
         <hr className="my-4"></hr>
         <div className="row d-flex justify-content-around">
           <div className="col-1 text-center">Website</div>
@@ -164,7 +175,10 @@ export const College = (props) => {
         <hr className="my-2"></hr>
         <div className="row d-flex justify-content-around">
           <div className="col-1 text-center">
-            <a href={"https://" + currentCollege.website}>
+            <a
+              href={"https://" + currentCollege.website}
+              className="text-white"
+            >
               {currentCollege.website}
             </a>
           </div>
@@ -191,7 +205,9 @@ export const College = (props) => {
               Visit School Site
             </button>
           </a>
-          {/* <button
+          {/* Removed Favorites button as functionality has been put on hold at this time
+          
+          <button
             className="btn btn-primary btn-lg mx-5"
             onClick={() => actions.addFavorite(currentCollege)}
           >

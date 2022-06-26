@@ -6,6 +6,7 @@ import { Search } from "../component/search";
 import { SchoolCard } from "../component/schoolcard";
 import { FavoriteCard } from "../component/favoriteCard";
 import { Login } from "./login";
+import "../../styles/user.css";
 
 export const User = (props) => {
   const { store, actions } = useContext(Context);
@@ -20,11 +21,14 @@ export const User = (props) => {
     <div className="text-center">
       {!store.activeUser ? (
         <div>
-          <h1>You're Not Logged In! Let's do something about that...</h1>
+          <h1 className="text-white m-3">
+            You're Not Logged In! Let's do something about that...
+          </h1>
           <Login />
         </div>
       ) : (
-        <div className="container d-flex flex-column align-items-center mb-5">
+        <div className="container footer-pusher d-flex flex-column align-items-center mb-5">
+          {/* removed favorite card due to lack of functionality at this time */}
           {/* <div>
             {store.activeUser
               ? store.activeUser.favorites.map((item, index) => {

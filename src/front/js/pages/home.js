@@ -21,12 +21,17 @@ export const Home = () => {
   const { store, actions } = useContext(Context);
 
   return (
-    <div className="text-center background mt-5 vh-100">
-      <div className="text-white h-100">
+    <div className="text-center mt-5">
+      <div className="text-white vh-100">
         <h1>Welcome to Modern Education</h1>
         <h2>
-          We're here to help you find the right information in your computer programming education!
+          We're here to help you find the right information in your computer
+          programming education!
         </h2>
+        <h3>
+          Check Out the Information in the Tabs Below, and Take a Look at the
+          Videos at the Bottom of this Page for More Information!
+        </h3>
         {!store.activeUser ? (
           <div>
             <p>
@@ -182,7 +187,7 @@ export const Home = () => {
           </div>
         </div>
       </div>
-      <div>
+      <div className="videos">
         <Video />
       </div>
     </div>

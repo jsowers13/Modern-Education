@@ -5,9 +5,25 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
-/* body {
-  background-color: blue;
-} */
+
+/*applied background to body of entire webpage*/
+body {
+  background-image: linear-gradient(
+      217deg,
+      rgba(0, 0, 0, 0.555),
+      rgba(0, 0, 0, 0.555) 70.71%
+    ),
+    url("https://t3.ftcdn.net/jpg/02/96/19/96/240_F_296199640_u386oRVazzYoeSp3XNhDdQpMpol2nsNX.jpg");
+  background-size: cover;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  min-height: 100%;
+  background-color: rgba(0, 105, 105, 0.534);
+}
+.videos {
+  padding-bottom: 75px;
+}
+/*This code was the original code for the background. Moved code to body to apply to entire site and cover entire page*/
 .background {
   background-image: linear-gradient(
       217deg,
@@ -21,4 +37,8 @@
 }
 .links {
   margin-bottom: 100px;
+}
+
+.school-background {
+  background-color: rgba(0, 105, 105, 0.534);
 }
