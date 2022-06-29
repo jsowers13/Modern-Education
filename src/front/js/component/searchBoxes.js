@@ -82,13 +82,6 @@ export const BootcampSearch = () => {
         </div>
 
         <div className="card-body d-grid">
-          {/* <a
-            href="#"
-            className="card-link btn btn-lg btn-success col-9 mx-auto"
-            onClick={searchFunction}
-          >
-            Search
-          </a> */}
           <button
             type="button"
             className="btn btn-primary"
@@ -185,7 +178,6 @@ export const CollegeSearch = () => {
       (item) =>
         item.stateAbbr.includes(stateCode) &&
         item.avgCostOfAttendance <= maxTuitionValue
-      // item.length_in_weeks <= timeToCompleteValue
     );
     console.log(stateCode);
     setSearchResults(newResults);
@@ -209,7 +201,6 @@ export const CollegeSearch = () => {
             placeholder="Choose State"
             id="stateDropdown"
             onChange={(e) => setStateCode(e.target.value)}
-            // value={programType}
           >
             <option defaultValue={""}></option>
             <option value="MA">Massachusetts</option>
@@ -241,7 +232,6 @@ export const CollegeSearch = () => {
             placeholder="Time to Complete"
             id="timeToCompleteDropdown"
             onChange={(e) => setRemoteAvailable(e.target.value)}
-            // value={remoteAvailable}
           >
             <option defaultValue={99}></option>
             <option value={"Yes"}>Remote Available</option>
@@ -370,7 +360,8 @@ export const CollegeSearch = () => {
           </div>
         </div>
       </div>
-      {/* <div className="card-deck-wrapper">
+      {/* original card deck display method, no longer in use
+      <div className="card-deck-wrapper">
         {searchResults.map((item, index) => {
           return (
             <CollegeCard

@@ -92,7 +92,8 @@ export const CollegeCard = (props) => {
               Learn More
             </button>
           </Link>
-          {/* <button
+          {/* button removed as favorites functionality not available at this time
+           <button
             className="btn btn-primary ms-5"
             onClick={() => actions.addFavorite(props.school_name)}
           >

@@ -18,15 +18,9 @@ export const Navbar = () => {
   return (
     <nav className="navbar navbar-light bg-light">
       <div className="container">
-        {/* {!store.activeUser ? ( */}
         <Link to="/">
           <span className="navbar-brand mb-0 h1">Modern Education</span>
         </Link>
-        {/* ) : ( */}
-        {/* <Link to="/">
-            <span className="navbar-brand mb-0 h1">Modern Education</span>
-          </Link>
-        )} */}
 
         {!store.activeUser ? (
           <div className="ml-auto">
