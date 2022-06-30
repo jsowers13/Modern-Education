@@ -32,7 +32,7 @@ const Layout = () => {
             <Route exact path="/demo">
               <Demo />
             </Route>
-            <Route exact path="/bootcamp/:school_id">
+            <Route exact path="/bootcamp/:id">
               <Bootcamp />
             </Route>
             <Route exact path="/college/:collegeUnitId">

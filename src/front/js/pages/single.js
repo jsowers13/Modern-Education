@@ -13,7 +13,7 @@ export const Bootcamp = (props) => {
   useEffect(() => {
     async function fetchData() {
       // You can await here
-      const answer = await actions.getBootCampsByID(params.school_id);
+      const answer = await actions.getBootCampsByID(params.id);
       setCurrentBootCamp(answer);
       console.log(answer);
       return answer;

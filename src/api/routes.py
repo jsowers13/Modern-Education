@@ -78,4 +78,12 @@ def get_all_schools():
     all_schools = list(map(lambda school: school.serialize(), schools))
     
     return jsonify(all_schools), 200
+
+@api.route('/schools/<int:id>', methods=['GET'])
+def get_single_school():
+    single_school = School.query.filter_by(id=="school_id")
+    print(single_school)
+
+    return jsonify(single_school), 200
+
     
