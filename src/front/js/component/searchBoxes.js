@@ -92,73 +92,112 @@ export const BootcampSearch = () => {
             Search for BootCamps!
           </button>
 
-          <div
-            className="modal fade"
-            id="schoolSearchResults"
-            tabIndex="-1"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-          >
-            <div className="modal-dialog modal-fullscreen">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h3 className="modal-title mx-auto" id="exampleModalLabel">
-                    Check Out These Schools!
-                  </h3>
-                  <button
-                    type="button"
-                    className="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                  >
-                    Back to Search
-                  </button>
-                </div>
-                <div className="modal-body pb-5 background">
-                  <div className="card-group">
-                    {searchResults.slice(0, 5).map((item, index) => {
-                      return (
-                        <SchoolCard
-                          school_name={item.name}
-                          pic_url={item.logo}
-                          tuition={item.tuition}
-                          skill_level={item.minimum_skill_level}
-                          time_to_complete={item.length_in_weeks + " weeks"}
-                          key={index}
-                          index={index}
-                          id={item.school_id}
-                        />
-                      );
-                    })}
+          {!searchResults.length == 0 ? (
+            <div
+              className="modal fade"
+              id="schoolSearchResults"
+              tabIndex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div className="modal-dialog modal-fullscreen">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h3 className="modal-title mx-auto" id="exampleModalLabel">
+                      Check Out These Schools!
+                    </h3>
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Back to Search
+                    </button>
                   </div>
-                  <div className="card-group">
-                    {searchResults.slice(5, 10).map((item, index) => {
-                      return (
-                        <SchoolCard
-                          school_name={item.name}
-                          pic_url={item.logo}
-                          tuition={item.tuition}
-                          skill_level={item.minimum_skill_level}
-                          time_to_complete={item.length_in_weeks + " weeks"}
-                          key={index}
-                          index={index}
-                          id={item.school_id}
-                        />
-                      );
-                    })}
+                  <div className="modal-body pb-5 background">
+                    <div className="card-group">
+                      {searchResults.slice(0, 5).map((item, index) => {
+                        return (
+                          <SchoolCard
+                            school_name={item.name}
+                            pic_url={item.logo}
+                            tuition={item.tuition}
+                            skill_level={item.minimum_skill_level}
+                            time_to_complete={item.length_in_weeks + " weeks"}
+                            key={index}
+                            index={index}
+                            id={item.school_id}
+                          />
+                        );
+                      })}
+                    </div>
+                    <div className="card-group">
+                      {searchResults.slice(5, 10).map((item, index) => {
+                        return (
+                          <SchoolCard
+                            school_name={item.name}
+                            pic_url={item.logo}
+                            tuition={item.tuition}
+                            skill_level={item.minimum_skill_level}
+                            time_to_complete={item.length_in_weeks + " weeks"}
+                            key={index}
+                            index={index}
+                            id={item.school_id}
+                          />
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
-                <div className="modal-footer">
-                  <button
-                    type="button"
-                    className="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                  >
-                    Back to Search
-                  </button>
+                  <div className="modal-footer">
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Back to Search
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          ) : (
+            <div
+              className="modal fade"
+              id="schoolSearchResults"
+              tabIndex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">No Results Found!</h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>
+                      There are no results matching your search criteria! Select
+                      new criteria and search again!
+                    </p>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Back to Search
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -250,114 +289,153 @@ export const CollegeSearch = () => {
             Search for Colleges!
           </button>
 
-          <div
-            className="modal fade"
-            id="collegeSearchModal"
-            tabIndex="-1"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-          >
-            <div className="modal-dialog modal-fullscreen">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h3 className="modal-title mx-auto" id="exampleModalLabel">
-                    Check Out These Schools!
-                  </h3>
-                  <button
-                    type="button"
-                    className="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                  >
-                    Back to Search
-                  </button>
-                </div>
-                <div className="modal-body background p-5">
-                  <div className="card-group">
-                    {searchResults.slice(0, 5).map((item, index) => {
-                      return (
-                        <CollegeCard
-                          school_name={item.name}
-                          pic_url={item.logoImage}
-                          tuition={item.avgCostOfAttendance}
-                          state={item.stateAbbr}
-                          six_year_earnings={
-                            item.medianEarningsSixYrsAfterEntry
-                          }
-                          key={index}
-                          index={index}
-                          id={item.collegeUnitId}
-                        />
-                      );
-                    })}
+          {!searchResults.length == 0 ? (
+            <div
+              className="modal fade"
+              id="collegeSearchModal"
+              tabIndex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div className="modal-dialog modal-fullscreen">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h3 className="modal-title mx-auto" id="exampleModalLabel">
+                      Check Out These Schools!
+                    </h3>
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Back to Search
+                    </button>
                   </div>
+                  <div className="modal-body background p-5">
+                    <div className="card-group">
+                      {searchResults.slice(0, 5).map((item, index) => {
+                        return (
+                          <CollegeCard
+                            school_name={item.name}
+                            pic_url={item.logoImage}
+                            tuition={item.avgCostOfAttendance}
+                            state={item.stateAbbr}
+                            six_year_earnings={
+                              item.medianEarningsSixYrsAfterEntry
+                            }
+                            key={index}
+                            index={index}
+                            id={item.collegeUnitId}
+                          />
+                        );
+                      })}
+                    </div>
 
-                  <div className="card-group">
-                    {searchResults.slice(5, 10).map((item, index) => {
-                      return (
-                        <CollegeCard
-                          school_name={item.name}
-                          pic_url={item.logoImage}
-                          tuition={item.avgCostOfAttendance}
-                          state={item.stateAbbr}
-                          six_year_earnings={
-                            item.medianEarningsSixYrsAfterEntry
-                          }
-                          key={index}
-                          index={index}
-                          id={item.collegeUnitId}
-                        />
-                      );
-                    })}
+                    <div className="card-group">
+                      {searchResults.slice(5, 10).map((item, index) => {
+                        return (
+                          <CollegeCard
+                            school_name={item.name}
+                            pic_url={item.logoImage}
+                            tuition={item.avgCostOfAttendance}
+                            state={item.stateAbbr}
+                            six_year_earnings={
+                              item.medianEarningsSixYrsAfterEntry
+                            }
+                            key={index}
+                            index={index}
+                            id={item.collegeUnitId}
+                          />
+                        );
+                      })}
+                    </div>
+                    <div className="card-group">
+                      {searchResults.slice(10, 15).map((item, index) => {
+                        return (
+                          <CollegeCard
+                            school_name={item.name}
+                            pic_url={item.logoImage}
+                            tuition={item.avgCostOfAttendance}
+                            state={item.stateAbbr}
+                            six_year_earnings={
+                              item.medianEarningsSixYrsAfterEntry
+                            }
+                            key={index}
+                            index={index}
+                            id={item.collegeUnitId}
+                          />
+                        );
+                      })}
+                    </div>
+                    <div className="card-group">
+                      {searchResults.slice(15, 20).map((item, index) => {
+                        return (
+                          <CollegeCard
+                            school_name={item.name}
+                            pic_url={item.logoImage}
+                            tuition={item.avgCostOfAttendance}
+                            state={item.stateAbbr}
+                            six_year_earnings={
+                              item.medianEarningsSixYrsAfterEntry
+                            }
+                            key={index}
+                            index={index}
+                            id={item.collegeUnitId}
+                          />
+                        );
+                      })}
+                    </div>
                   </div>
-                  <div className="card-group">
-                    {searchResults.slice(10, 15).map((item, index) => {
-                      return (
-                        <CollegeCard
-                          school_name={item.name}
-                          pic_url={item.logoImage}
-                          tuition={item.avgCostOfAttendance}
-                          state={item.stateAbbr}
-                          six_year_earnings={
-                            item.medianEarningsSixYrsAfterEntry
-                          }
-                          key={index}
-                          index={index}
-                          id={item.collegeUnitId}
-                        />
-                      );
-                    })}
+                  <div className="modal-footer">
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Go Back to Search
+                    </button>
                   </div>
-                  <div className="card-group">
-                    {searchResults.slice(15, 20).map((item, index) => {
-                      return (
-                        <CollegeCard
-                          school_name={item.name}
-                          pic_url={item.logoImage}
-                          tuition={item.avgCostOfAttendance}
-                          state={item.stateAbbr}
-                          six_year_earnings={
-                            item.medianEarningsSixYrsAfterEntry
-                          }
-                          key={index}
-                          index={index}
-                          id={item.collegeUnitId}
-                        />
-                      );
-                    })}
-                  </div>
-                </div>
-                <div className="modal-footer">
-                  <button
-                    type="button"
-                    className="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                  >
-                    Go Back to Search
-                  </button>
                 </div>
               </div>
             </div>
-          </div>
+          ) : (
+            <div
+              className="modal fade"
+              id="collegeSearchModal"
+              tabIndex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">No Results Found!</h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>
+                      There are no results matching your search criteria! Select
+                      new criteria and search again!
+                    </p>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Back to Search
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
       {/* original card deck display method, no longer in use

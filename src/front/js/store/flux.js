@@ -165,12 +165,22 @@ const getState = ({ getStore, getActions, setStore }) => {
         console.log(data);
         return data.colleges[0];
       },
+      // getBootCampsByID: async (id) => {
+      //   console.log(id);
+      //   const response = await fetch(
+      //     process.env.BACKEND_URL + "/api/schools/" + id
+      //   );
+      //   const data = await response.json();
+      //   setStore({ schools: data });
+      //   console.log(data);
+      //   return data;
+      // },
       getBootCampsByID: async (id) => {
         console.log(id);
-        const response = await fetch(process.env.BACKEND_URL + "/api/schools");
+        const response = await fetch(process.env.BACKEND_URL + `/api/schools/`);
         const data = await response.json();
         setStore({ schools: data[id - 1] });
-        console.log(data);
+        console.log(data[id - 1]);
         return data[id - 1];
       },
     },
