@@ -201,7 +201,7 @@ export const College = (props) => {
         </div>
         <br></br>
         <div className="d-flex justify-content-center links">
-          <a href={"https://" + currentCollege.website}>
+          <a href={"https://" + currentCollege.website} target="_blank">
             <button className="btn btn-lg btn-primary mx-5">
               Visit School Site
             </button>
