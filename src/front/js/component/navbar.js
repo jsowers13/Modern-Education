@@ -4,6 +4,7 @@ import { Context } from "../store/appContext";
 import { useHistory } from "react-router-dom";
 import { LogOutBtn } from "./logoutbtn";
 import { FavoriteDropdown } from "./favorites";
+import ModernEducationLogo from "../../img/ModernEducation.jpeg";
 
 export const Navbar = () => {
   const { store } = useContext(Context);
@@ -16,10 +17,15 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-light bg-light">
-      <div className="container">
+    <nav className="navbar navbar-dark bg-dark">
+      <div className="container-fluid">
         <Link to="/">
-          <span className="navbar-brand mb-0 h1">Modern Education</span>
+          {/* <span className="navbar-brand mb-0 h1">Modern Education</span> */}
+          <img
+            className="ms-5"
+            src={ModernEducationLogo}
+            style={{ height: 100 + "px", width: 100 + "px" }}
+          ></img>
         </Link>
 
         {!store.activeUser ? (
@@ -33,7 +39,7 @@ export const Navbar = () => {
             </Link>
           </div>
         ) : (
-          <div className="w-25 d-flex justify-content-end">
+          <div className="w-25 d-flex justify-content-center">
             {/* <FavoriteDropdown /> */}
 
             <LogOutBtn />

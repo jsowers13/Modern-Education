@@ -155,7 +155,7 @@ export const College = (props) => {
           </div>
         </div>
         {currentCollege.longDescription ? (
-          <p className="lead">currentCollege.longDescription</p>
+          <p className="lead">{currentCollege.longDescription}</p>
         ) : (
           <h1 className="text-center m-5 p-5">
             {" "}
