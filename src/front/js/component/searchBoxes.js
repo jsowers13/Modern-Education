@@ -40,7 +40,6 @@ export const BootcampSearch = () => {
             placeholder="Select from List"
             id="programDropdown"
             onChange={(e) => setProgramType(e.target.value)}
-            value={programType}
           >
             <option defaultValue={""}></option>
             <option value="">Not Sure</option>
