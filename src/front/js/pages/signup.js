@@ -9,6 +9,8 @@ export const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+
+
   return (
     <div className="container d-flex justify-content-center vh-100">
       <div className="card w-50 signup mt-5">
